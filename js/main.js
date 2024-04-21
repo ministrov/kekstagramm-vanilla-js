@@ -4,7 +4,7 @@ let name = 'Anton';
 
 // console.log(name);
 
-window.console.log(name);
+// window.console.log(name);
 
 const age = 45;
 
