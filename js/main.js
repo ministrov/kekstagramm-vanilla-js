@@ -1,8 +1,14 @@
-'use strict';
+// import random from "./helpers";
 
-import random from "./helpers";
+const getRandomRange = function(min, max) {
+  return Math.floor(Math.random() * (min - max + 1)) + min;
+}
+
+const random = Math.floor(Math.random() * 11);
 
 console.log(random);
+
+console.log(getRandomRange(4, 9));
 // let name = 'Anton';
 
 // // console.log(name);
