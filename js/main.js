@@ -1,26 +1,29 @@
 'use strict';
 
-let name = 'Anton';
+import random from "./helpers";
 
-// console.log(name);
+console.log(random);
+// let name = 'Anton';
 
-// window.console.log(name);
+// // console.log(name);
 
-const age = 45;
+// // window.console.log(name);
 
-window.console.log(typeof (age + name));
+// const age = 45;
 
-function sumNumers(first, second) {
-  return first + second;
-}
+// window.console.log(typeof (age + name));
 
-const result = sumNumers(3, 6);
+// function sumNumers(first, second) {
+//   return first + second;
+// }
 
-console.log(result);
+// const result = sumNumers(3, 6);
 
-console.log(sumNumers(2, 5));
+// console.log(result);
 
-// const MY_GENDER = 'male';
-// const EARTH_ROUND = 40000;
+// console.log(sumNumers(2, 5));
+
+// // const MY_GENDER = 'male';
+// // const EARTH_ROUND = 40000;
 
 
