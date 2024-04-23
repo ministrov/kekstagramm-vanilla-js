@@ -46,6 +46,52 @@ const textFunction = (first, last, params = {}) => {
 
 console.log(textFunction('Anton', 'Zhilin'));
 
+const weathers = ['Солнечно', 'Ветрено', 'Дождливо', 'Морозно'];
+
+/**
+ *
+ * @param {Array} weather
+ * @returns checks to do
+ */
+
+const getСlothing = function (weather) {
+  if (weather === 'Солнечно') {
+    return 'Майку';
+  } else if (weather === 'Ветрено') {
+    return 'Куртку';
+  } else if (weather === 'Дождливо') {
+    return 'Дождевик';
+  } else {
+    return 'Пуховик';
+  }
+}
+
+for (let i = 0; i < weathers.length; i++) {
+  console.log('Что надеть, если сейчас ' + weathers[i] + '? --> ' + getСlothing(weathers[i]));
+};
+
+/**
+ * Refactoring getСlothing2 function
+ * @param {Array} weather
+ * @returns checks
+ */
+
+const getСlothing2 = function (weather) {
+  switch (weather) {
+    case 'Солнечно':
+      return 'Майку';
+    case 'Ветрено':
+      return 'Куртку';
+    case 'Дождливо':
+      return 'Дождевик';
+    case 'Морозно':
+      return 'Пуховик';
+    case 'Пасмурно':
+      return 'Плащ';
+    default:
+      return 'Непонятно!';
+  }
+}
 
 
 // const random = Math.floor(Math.random() * 11);
