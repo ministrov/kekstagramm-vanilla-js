@@ -46,45 +46,70 @@ const counter = createCounter(); // counter — это функция, замы�
 console.log(counter()); // 1
 console.log(counter()); // 2
 
-const b = 2;
-
-function getNumber(number) {
-  return number * 10;
-}
-
-console.log(getNumber(b));
-
-const obj = {
-  name: 'Anton',
-  date: '25/05/1983',
-  job: 'Freelancer',
-  isMaried: false,
-  hasBrother: true
-}
-
-
 /**
- *The function generates 25 objects of user's photos
- * @returns {Array} Array of 25 generated objects
+ * The function get any string message
+ * @returns {String} Return random string with index from 0 to 6
  */
-const generateArrayOfPhotos = function() {
-  return console.log(['1', '2', '3', 4, false])
+
+const getAnyMessages = function() {
+  const MESSAGES = [
+    'В целом всё неплохо. Но не всё.',
+    'Всё отлично!',
+    'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.',
+    'Моя бабушка случайно чихнула с фотоаппаратом в руках и у неё получилась фотография лучше.',
+    'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.',
+    'Лица у людей на фотке перекошены, как будто их избивают.Как можно было поймать такой неудачный момент ? !'
+  ];
+
+  return MESSAGES[getRandomRange(0, 6)];
 }
+
 /**
  * This function generate a classic objec of some photo creating by user
  * @param {Object} data
  * @returns {Object} Object with data to use
  */
-const generateObject = function(data) {
+const generateObject = function() {
   return {
-    id: data.id,
-    url: data.id,
-    description: data.description,
-    likes: data.likes,
-    comments: [],
-    avatar: `img/avatar-${getRandomRange(1, 6)}.svg`,
-    message: ['Всё отлично!', 'В целом всё неплохо.Но не всё.', 'Когда вы делаете фотографию, хорошо бы убирать палец из кадра.', 'В конце концов это просто непрофессионально.', 'Моя бабушка случайно чихнула с фотоаппаратом в руках и у неё получилась фотография лучше.', 'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.', 'Лица у людей на фотке перекошены, как будто их избивают.Как можно было поймать такой неудачный момент ? !']
+    id: getRandomRange(1, 25),
+    url: `photos/${getRandomRange(1, 25)}.jpg`,
+    description: 'Какое то оописание надо придумать',
+    likes: getRandomRange(15, 200),
+    comments: [
+      {
+        id: 135,
+        avatar: `img/avatar-${getRandomRange(1, 6)}.svg`,
+        message: getAnyMessages(),
+        name: 'Артем',
+      },
+      {
+        id: 136,
+        avatar: `img/avatar-${getRandomRange(1, 6)}.svg`,
+        message: getAnyMessages(),
+        name: 'Артем',
+      },
+      {
+        id: 137,
+        avatar: `img/avatar-${getRandomRange(1, 6)}.svg`,
+        message: getAnyMessages(),
+        name: 'Артем',
+      },
+      {
+        id: 138,
+        avatar: `img/avatar-${getRandomRange(1, 6)}.svg`,
+        message: getAnyMessages(),
+        name: 'Артем',
+      }
+    ]
   }
+}
+
+/**
+ *The function generates 25 objects of user's photos
+ * @returns {Array} Array of 25 generated objects
+ */
+const generateArrayOfPhotos = function () {
+  return generateObject()
 }
 
 
