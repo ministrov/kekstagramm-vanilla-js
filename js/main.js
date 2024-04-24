@@ -49,7 +49,7 @@ console.log(counter()); // 2
 /**
  * The function get any string message
  * @returns {String} Return random string with index from 0 to 6
- */
+*/
 
 const getAnyMessages = function() {
   const MESSAGES = [
@@ -61,14 +61,14 @@ const getAnyMessages = function() {
     'Лица у людей на фотке перекошены, как будто их избивают.Как можно было поймать такой неудачный момент ? !'
   ];
 
-  return MESSAGES[getRandomRange(0, 6)];
+  return MESSAGES[getRandomRange(0, MESSAGES.length - 1)];
 }
 
 /**
  * This function generate a classic objec of some photo creating by user
  * @param {Object} data
  * @returns {Object} Object with data to use
- */
+*/
 const generateObject = function() {
   return {
     id: getRandomRange(1, 25),
@@ -105,11 +105,25 @@ const generateObject = function() {
 }
 
 /**
- *The function generates 25 objects of user's photos
+ *Function need to return an array with 25 object of user's photos
  * @returns {Array} Array of 25 generated objects
- */
+*/
 const generateArrayOfPhotos = function () {
-  return generateObject()
+  let photos = [];
+
+  for (let i = 0; i < 25; i++) {
+    photos.push(generateObject());
+  }
+
+  return photos;
 }
+
+console.log(generateArrayOfPhotos());
+
+const photos = generateArrayOfPhotos();
+
+const comments = photos.map(item => [...item.comments]);
+
+console.log(comments);
 
 
