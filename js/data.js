@@ -1,4 +1,4 @@
-import { getRandomRange, getRandomArrayElement } from './utils.js';
+import { getNumerInRange, getRandomArrayElement } from './utils.js';
 
 const PHOTO_COUNT = 25;
 const MESSAGES = [
@@ -51,11 +51,11 @@ const names = [
 const addComments = function() {
   let comments = [];
 
-  for (let i = 0; i < getRandomRange(Comments.MIN, Comments.MAX); i++) {
+  for (let i = 0; i < getNumerInRange(Comments.MIN, Comments.MAX); i++) {
     comments.push({
-      id: getRandomRange(0, 999),
-      avatar: 'img/avatar-' + getRandomRange(1, 6) + '.svg',
-      message: getRandomRange(MESSAGES),
+      id: getNumerInRange(0, 999),
+      avatar: 'img/avatar-' + getNumerInRange(1, 6) + '.svg',
+      message: getNumerInRange(MESSAGES),
       name: getRandomArrayElement(names)
     });
   }
@@ -73,14 +73,13 @@ const addPhotos = function () {
       id: i,
       url: 'photos/' + (i + 1) + '.jpg',
       description: getRandomArrayElement(DESCRIPTION),
-      likes: getRandomRange(LIKES.MIN, LIKES.MAX),
+      likes: getNumerInRange(LIKES.MIN, LIKES.MAX),
       comments: addComments(),
     })
   }
 }
 
-console.log(addPhotos());
-
 export {
-  photos
+  photos,
+  addPhotos
 }
