@@ -25,6 +25,24 @@ const checkStrLength = function(str, sign) {
 }
 
 /**
+ * The function hides first four digit of the card
+ * @param {String} cardNumber
+ * @param {Number} starsCount
+ * @returns {String} string with the hidden numbers
+*/
+const getHiddenCard = (cardNumber, starsCount = 4) => {
+  const visibleDigitsLine = cardNumber.slice(12);
+  return `${'*'.repeat(starsCount)}${visibleDigitsLine}`;
+};
+
+/**
+ *  The function cutting the first character of the word and return in capitalize
+ * @param {String} text
+ * @returns {String}
+ */
+const capitalize = (text) => `${text[0].toUpperCase()}${text.slice(1)}`;
+
+/**
  * The function get a random array's element
  * @param {Array} array of element to get
  * @returns Random array element
@@ -36,5 +54,7 @@ const getRandomArrayElement = function(array) {
 export {
   getNumerInRange,
   checkStrLength,
-  getRandomArrayElement
+  getRandomArrayElement,
+  getHiddenCard,
+  capitalize
 }
