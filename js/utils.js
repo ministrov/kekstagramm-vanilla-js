@@ -4,7 +4,7 @@
  * @param {Number} max To maximum number
  * @returns {Number} random number in range from min to max
  */
-const getRandomRange = function (min, max) {
+const getRandomRange = function(min, max) {
   if (min < 0 || max < 0) return;
 
   if (max < min) {
@@ -28,6 +28,8 @@ const checkStrLength = function(str, sign) {
 
 checkStrLength('Mynamedisdf', 12);
 
+let arr = [1, 3, 6, 7];
+
 /**
  * The function get a random array's element
  * @param {Array} array of element to get
@@ -36,6 +38,8 @@ checkStrLength('Mynamedisdf', 12);
 const getRandomArrayElement = function(array) {
   return array[getRandomRange(0, array.length - 1)];
 }
+
+console.log(getRandomArrayElement(arr));
 
 export {
   getRandomRange,
