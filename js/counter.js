@@ -1,11 +1,13 @@
 /**
  * This is a basic closure function
- * @returns {Number} count is number
+ * @returns {Number} count it is number
 */
 function createCounter() {
   let count = 0; // Приватная переменная, доступная только внутри createCounter
-  return function () {
+  console.log(count);
+  return function() {
     count += 1;
+    console.log(count);
     return count;
   };
 }
