@@ -44,30 +44,13 @@ const names = [
   'Денис',
 ];
 
-// /**
-//  * This function generate a classic object of some photos creating by user
-//  * @returns {Object} Object with data to use
-// */
-// const addComments = function() {
-//   let comments = [];
-
-//   for (let i = 0; i < getNumerInRange(Comments.MIN, Comments.MAX); i++) {
-//     comments.push({
-//       id: getNumerInRange(0, 999),
-//       avatar: 'img/avatar-' + getNumerInRange(1, 6) + '.svg',
-//       message: getRandomArrayElement(MESSAGES),
-//       name: getRandomArrayElement(names)
-//     });
-//   }
-
-//   return comments;
-// }
 
 /**
  *Function need to return an array with 25 object of user's photos
  * @returns {Array} Array of 25 generated objects
 */
-const addPhotos = function () {
+
+const addPhotos = () => {
   for (let i = 0; i < PHOTO_COUNT; i++) {
     photos.push({
       id: i,
