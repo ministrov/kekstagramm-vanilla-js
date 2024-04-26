@@ -1,31 +1,28 @@
 import { addPhotos, photos } from './data.js';
-// import { counter } from './counter.js';
-import { isLeapYear } from './functions.js';
-
-// const STOP_NUMBER = 23;
+import { makeUniqueRandomIntegerGenerator, createSecretStorage } from './counter.js';
 
 addPhotos();
 
 console.log(photos);
 
-// for (let i = 0; i < STOP_NUMBER; i++) {
-//   console.log(counter());
-// }
+// const getUniqueRandomInteger = makeUniqueRandomIntegerGenerator(1, 5);
 
-// console.log(isInfant(4));
+// console.log(getUniqueRandomInteger());
+// console.log(getUniqueRandomInteger());
+// console.log(getUniqueRandomInteger());
 
-// console.log(isCastle('Myname'));
+// console.log('-----------------------');
 
-// console.log(isEven(5));
+// const getAnotherUniqueRandomInteger = makeUniqueRandomIntegerGenerator(2, 4);
 
-// console.log(isFirstLetterInUpperCase('dkfdf'));
-// console.log(isFirstLetterInUpperCase('My JS'));
+// console.log(getAnotherUniqueRandomInteger());
+// console.log(getAnotherUniqueRandomInteger());
+// console.log(getAnotherUniqueRandomInteger());
 
-// console.log(isInternationalPhone('+74569850009'));
-// console.log(isInternationalPhone('74569850009'));
+const saveSecret = createSecretStorage();
+saveSecret('Совы не то, чем кажутся');
 
-// console.log(!!isEven(5));
-// console.log(!isEven(5));
+console.log(secrets[0]);
 
-console.log(isLeapYear(2020));
+
 
