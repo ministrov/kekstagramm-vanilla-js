@@ -1,14 +1,14 @@
-import { addPhotos, photos } from './data.js';
-import { createSecretStorage } from './counter.js';
-import { getLetter } from './functions.js';
-import { picture } from './userPicture.js';
+import { addPhotos, photos } from "./data.js";
+import { createSecretStorage } from "./counter.js";
+import { getLetter } from "./functions.js";
+import { userPhotos } from "./userPicture.js";
 
 addPhotos();
 
 console.log(photos);
 
 const saveSecret = createSecretStorage();
-saveSecret('Совы не то, чем кажутся');
+saveSecret("Совы не то, чем кажутся");
 
 // console.log(secrets[0]);
 
@@ -26,5 +26,5 @@ saveSecret('Совы не то, чем кажутся');
 //   }
 // }
 
-console.log(getLetter('Anton', 3));
-
+console.log(getLetter("Anton", 3));
+console.log(userPhotos);

@@ -67,7 +67,10 @@ const addPhotos = () => {
   }
 }
 
+// const createPhotos = () => new Array(PHOTO_COUNT).fill(null).map(() => addPhotos());
+
 export {
   photos,
-  addPhotos
+  addPhotos,
+  // createPhotos
 }
