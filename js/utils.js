@@ -56,10 +56,21 @@ const getRandomArrayElement = (array) => {
   return array[getNumerInRange(0, array.length - 1)];
 }
 
+/**
+ * The function checks whether ESCAPE button have been clicked or not
+ * @param {Object} evt
+ * @returns {Boolean} true || false
+*/
+
+const isEscKey = (evt) => {
+  return evt.key === 'Escape' || evt.key === 'Esc';
+}
+
 export {
   getNumerInRange,
   checkStrLength,
   getRandomArrayElement,
   getHiddenCard,
-  capitalize
+  capitalize,
+  isEscKey
 }

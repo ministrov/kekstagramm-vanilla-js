@@ -12,6 +12,8 @@ const isFirstLetterInUpperCase = (string) => {
 
 const isInternationalPhone = (phone) => phone[0] === '+';
 
+const getLetter = (string, position) => string[position - 1] || '';
+
 const isLeapYear = (year) => {
   const result = year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0);
   return result;
@@ -23,5 +25,6 @@ export {
   isEven,
   isFirstLetterInUpperCase,
   isInternationalPhone,
-  isLeapYear
+  isLeapYear,
+  getLetter
 }

@@ -1,6 +1,7 @@
 import { addPhotos, photos } from './data.js';
 import { createSecretStorage } from './counter.js';
-import { picture } from './picture.js';
+import { getLetter } from './functions.js';
+import { picture } from './userPicture.js';
 
 addPhotos();
 
@@ -25,5 +26,5 @@ saveSecret('Совы не то, чем кажутся');
 //   }
 // }
 
-
+console.log(getLetter('Anton', 3));
 
