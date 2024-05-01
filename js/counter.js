@@ -7,10 +7,10 @@ import { getNumerInRange } from "./utils.js";
 
 const createCounter = () => {
   let count = 0; // Приватная переменная, доступная только внутри createCounter
-  console.log(count);
+  // console.log(count);
   return function () {
     count += 1;
-    console.log(count);
+    // console.log(count);
     return count;
   };
 }
