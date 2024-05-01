@@ -1,28 +1,29 @@
 import { addPhotos, photos } from './data.js';
-import { makeUniqueRandomIntegerGenerator, createSecretStorage } from './counter.js';
+import { createSecretStorage } from './counter.js';
+import { picture } from './picture.js';
 
 addPhotos();
 
 console.log(photos);
 
-// const getUniqueRandomInteger = makeUniqueRandomIntegerGenerator(1, 5);
-
-// console.log(getUniqueRandomInteger());
-// console.log(getUniqueRandomInteger());
-// console.log(getUniqueRandomInteger());
-
-// console.log('-----------------------');
-
-// const getAnotherUniqueRandomInteger = makeUniqueRandomIntegerGenerator(2, 4);
-
-// console.log(getAnotherUniqueRandomInteger());
-// console.log(getAnotherUniqueRandomInteger());
-// console.log(getAnotherUniqueRandomInteger());
-
 const saveSecret = createSecretStorage();
 saveSecret('Совы не то, чем кажутся');
 
-console.log(secrets[0]);
+// console.log(secrets[0]);
+
+// const mainDocument = document.documentElement;
+// console.log(mainDocument);
+// // console.log(mainDocument.children);
+
+// for (let i = 0; i < mainDocument.children.length; i++) {
+//   const child = mainDocument.children[i];
+//   console.log(child.tagName.toLowerCase());
+
+//   for (let j = 0; j < child.children.length; j++) {
+//     const innerChild = child.children[j];
+//     console.log('|---' + innerChild.tagName.toLowerCase());
+//   }
+// }
 
 
 
