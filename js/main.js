@@ -1,16 +1,12 @@
-import { addPhotos, photos } from "./data.js";
-import { createSecretStorage } from "./counter.js";
-import { getLetter } from "./functions.js";
+import { addPhotos } from "./data.js";
+// import { normalizeUrl } from "./functions.js";
 import { renderPhotos } from "./userPicture.js";
 
 addPhotos();
 
 renderPhotos();
 
-console.log(photos);
-
-const saveSecret = createSecretStorage();
-saveSecret("Совы не то, чем кажутся");
+// console.log(normalizeUrl('waterdel.ru'));
 
 // console.log(secrets[0]);
 
