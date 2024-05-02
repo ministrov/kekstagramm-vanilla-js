@@ -19,6 +19,20 @@ const isLeapYear = (year) => {
   return result;
 };
 
+const normalizeUrl = (site) => {
+  let normalizedUrl;
+
+  if (site.startsWith('https://')) {
+    normalizedUrl = site;
+  } else {
+    normalizedUrl = `https://${site}`;
+  }
+
+  return normalizedUrl;
+}
+
+const isAbsNumber = (number) => (number >= 0 ? number : -number);
+
 export {
   isInfant,
   isCastle,
@@ -26,5 +40,7 @@ export {
   isFirstLetterInUpperCase,
   isInternationalPhone,
   isLeapYear,
-  getLetter
+  getLetter,
+  normalizeUrl,
+  isAbsNumber
 }
