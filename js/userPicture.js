@@ -1,23 +1,25 @@
 import { photos } from "./data.js";
 
-const picturesSection = document.querySelector(".pictures");
-const userPictureTemplate = document.querySelector("#picture").content;
+const picturesList = document.querySelector('.pictures');
+const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
 
-const userPhotos = photos;
+const renderPhoto = ({ url, comments, likes }) => {
+  const photoPreview = pictureTemplate.cloneNode(true);
+  photoPreview.querySelector('.picture__img').src = url;
+  photoPreview.querySelector('.picture__likes').textContent = likes;
+  photoPreview.querySelector('.picture__comments').textContent = comments.length;
 
-// console.log(userPhotos);
-const userPhotosListFragment = document.createDocumentFragment();
+  return photoPreview;
+}
 
-userPhotos.forEach(({ url, likes, comments }) => {
-  const pictureElement = userPictureTemplate.cloneNode(true);
-  console.log(pictureElement);
-  pictureElement.querySelector(".picture__img").src = url;
-  pictureElement.querySelector(".picture__comments").textContent = comments.message;
-  pictureElement.querySelector(".picture__likes").textContent = likes;
+const renderPhotos = () => {
+  let userPhotosListFragment = document.createDocumentFragment();
 
-  userPhotosListFragment.appendChild(pictureElement);
-});
+  photos.forEach((photo) =>{
+    userPhotosListFragment.appendChild(renderPhoto(photo));
+  });
 
-picturesSection.appendChild(userPhotosListFragment);
+  picturesList.appendChild(userPhotosListFragment);
+}
 
-export { userPhotos };
+export { renderPhotos };
