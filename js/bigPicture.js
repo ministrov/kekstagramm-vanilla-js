@@ -1,12 +1,14 @@
+import { isEscKey } from "./utils.js";
+
 const bigPicture = document.querySelector('.big-picture');
 const body = document.querySelector('body');
 const bigPictureClose = bigPicture.querySelector('.big-picture__cancel');
 
 // Just hide
 const commentsCount = bigPicture.querySelector('.social__comment-count');
-const commentsLoader = bigPicture.querySelector('.social__comments-loader');
-commentsCount.classList.add('hidden');
-commentsLoader.classList.add('hidden');
+// const commentsLoader = bigPicture.querySelector('.social__comments-loader');
+// commentsCount.classList.add('hidden');
+// commentsLoader.classList.add('hidden');
 
 const onBigPictureCloseClick = () => {
   bigPicture.classList.add('hidden');
@@ -19,6 +21,8 @@ const onBigPictureCloseClick = () => {
 
 const commentTemplate = document.querySelector('#comment').content.querySelector('.social__comment');
 const commentsList = document.querySelector('.social__comments');
+
+console.log(commentTemplate);
 
 const renderComment = (comment) => {
   const commentClone = commentTemplate.cloneNode(true);
@@ -33,19 +37,26 @@ const renderComment = (comment) => {
 const renderComments = (comments) => {
   let commentsListFragment = document.createDocumentFragment();
 
+  console.log(comments);
+
   comments.forEach((comment) => commentsListFragment.appendChild(renderComment(comment)));
 
-  commentsList.appendChild(commentsListFragment)
+  commentsList.appendChild(commentsListFragment);
 }
 
 const showBigPicture = (picture) => {
+  console.log(picture);
   body.classList.add('modal-open');
   bigPicture.querySelector('.big-picture__img > img').src = picture.url;
   bigPicture.querySelector('.likes-count').textContent = picture.likes;
-  bigPicture.querySelector('.comments-count').textContent = picture.comments.length;
+  commentsCount.querySelector('.comments-count').textContent = picture.comments.length;
   bigPicture.querySelector('.social__caption').textContent = picture.description;
 
   bigPictureClose.addEventListener('click', onBigPictureCloseClick);
+
+  // if (isEscKey()) {
+  //   onBigPictureCloseClick();
+  // }
 
   bigPicture.classList.remove('hidden');
   renderComments(picture.comments);

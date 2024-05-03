@@ -1,5 +1,4 @@
 import { addPhotos } from "./data.js";
-// import { normalizeUrl } from "./functions.js";
 import { renderPhotos } from "./userPicture.js";
 
 addPhotos();
