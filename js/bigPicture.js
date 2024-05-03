@@ -17,6 +17,15 @@ const onBigPictureCloseClick = () => {
   commentsList.innerHTML = '';
 }
 
+const onBigPictureEscClose = () => {
+  document.addEventListener('keydown', (evt) => {
+    if (isEscKey(evt)) {
+      onBigPictureCloseClick();
+    }
+  });
+  document.removeEventListener('keydown', onBigPictureEscClose);
+}
+
 // The function for inputing comments
 
 const commentTemplate = document.querySelector('#comment').content.querySelector('.social__comment');
@@ -54,6 +63,7 @@ const showBigPicture = (picture) => {
   bigPicture.querySelector('.social__caption').textContent = picture.description;
 
   bigPictureClose.addEventListener('click', onBigPictureCloseClick);
+  onBigPictureEscClose();
 
   bigPicture.classList.remove('hidden');
   renderComments(picture.comments);
