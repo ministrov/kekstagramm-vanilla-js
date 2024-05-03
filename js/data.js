@@ -44,6 +44,26 @@ const names = [
   'Денис',
 ];
 
+/**
+ * The function creates an array of objects that contains user comments
+ * @returns {Array} Array of comments
+*/
+
+const addComments = () => {
+  const commentsArr = [];
+
+  for (let i = 0; i < getNumerInRange(3, 10); i++) {
+    commentsArr.push({
+      id: getNumerInRange(0, 999),
+      avatar: 'img/avatar-' + getNumerInRange(1, 6) + '.svg',
+      message: getRandomArrayElement(MESSAGES),
+      name: getRandomArrayElement(names)
+    });
+  }
+
+  return commentsArr;
+}
+
 
 /**
  *Function need to return an array with 25 object of user's photos
@@ -57,12 +77,7 @@ const addPhotos = () => {
       url: 'photos/' + (i + 1) + '.jpg',
       description: getRandomArrayElement(DESCRIPTION),
       likes: getNumerInRange(LIKES.MIN, LIKES.MAX),
-      comments: {
-        id: getNumerInRange(0, 999),
-        avatar: 'img/avatar-' + getNumerInRange(1, 6) + '.svg',
-        message: getRandomArrayElement(MESSAGES),
-        name: getRandomArrayElement(names)
-      },
+      comments: addComments(),
     })
   }
 }
