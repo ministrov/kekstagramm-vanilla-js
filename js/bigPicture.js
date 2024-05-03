@@ -37,7 +37,8 @@ const renderComment = (comment) => {
 const renderComments = (comments) => {
   let commentsListFragment = document.createDocumentFragment();
 
-  console.log(comments);
+  console.log(typeof comments);
+  // console.log(Array.isArray(newComments));
 
   comments.forEach((comment) => commentsListFragment.appendChild(renderComment(comment)));
 
@@ -53,10 +54,6 @@ const showBigPicture = (picture) => {
   bigPicture.querySelector('.social__caption').textContent = picture.description;
 
   bigPictureClose.addEventListener('click', onBigPictureCloseClick);
-
-  // if (isEscKey()) {
-  //   onBigPictureCloseClick();
-  // }
 
   bigPicture.classList.remove('hidden');
   renderComments(picture.comments);
