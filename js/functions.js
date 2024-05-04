@@ -33,6 +33,27 @@ const normalizeUrl = (site) => {
 
 const isAbsNumber = (number) => (number >= 0 ? number : -number);
 
+const convertText = (str) => {
+  if (str === '') return '';
+
+  const reversable = str[0] !== str[0].toUpperCase();
+
+  return reversable ? str.split().reverse().join('') : str;
+}
+
+const getNumberExplanation = (number) => {
+  switch (number) {
+    case 666:
+      return 'devil number';
+    case 7:
+      return 'prime number';
+    case 42:
+      return 'answer for everything';
+    default:
+      return 'just a number';
+  }
+}
+
 export {
   isInfant,
   isCastle,
@@ -42,5 +63,7 @@ export {
   isLeapYear,
   getLetter,
   normalizeUrl,
-  isAbsNumber
+  isAbsNumber,
+  convertText,
+  getNumberExplanation
 }
