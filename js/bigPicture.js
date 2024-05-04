@@ -31,8 +31,6 @@ const onBigPictureEscClose = () => {
 const commentTemplate = document.querySelector('#comment').content.querySelector('.social__comment');
 const commentsList = document.querySelector('.social__comments');
 
-console.log(commentTemplate);
-
 const renderComment = (comment) => {
   const commentClone = commentTemplate.cloneNode(true);
 
@@ -45,9 +43,6 @@ const renderComment = (comment) => {
 
 const renderComments = (comments) => {
   let commentsListFragment = document.createDocumentFragment();
-
-  console.log(typeof comments);
-  // console.log(Array.isArray(newComments));
 
   comments.forEach((comment) => commentsListFragment.appendChild(renderComment(comment)));
 

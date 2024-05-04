@@ -10,8 +10,6 @@ const renderPhoto = (picture) => {
   photoPreview.querySelector('.picture__likes').textContent = picture.likes;
   photoPreview.querySelector('.picture__comments').textContent = picture.comments.length;
 
-  // console.log(picture);
-
   photoPreview.addEventListener('click', (evt) => {
     evt.preventDefault();
     showBigPicture(picture);

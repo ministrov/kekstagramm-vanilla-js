@@ -33,6 +33,43 @@ const normalizeUrl = (site) => {
 
 const isAbsNumber = (number) => (number >= 0 ? number : -number);
 
+const convertText = (str) => {
+  if (str === '') return '';
+
+  const reversable = str[0] !== str[0].toUpperCase();
+
+  return reversable ? str.split().reverse().join('') : str;
+}
+
+const getNumberExplanation = (number) => {
+  switch (number) {
+    case 666:
+      return 'devil number';
+    case 7:
+      return 'prime number';
+    case 42:
+      return 'answer for everything';
+    default:
+      return 'just a number';
+  }
+}
+
+const logDOMNodes = () => {
+  const mainDocument = document.documentElement;
+  console.log(mainDocument);
+  // console.log(mainDocument.children);
+
+  for (let i = 0; i < mainDocument.children.length; i++) {
+    const child = mainDocument.children[i];
+    console.log(child.tagName.toLowerCase());
+
+    for (let j = 0; j < child.children.length; j++) {
+      const innerChild = child.children[j];
+      console.log('|---' + innerChild.tagName.toLowerCase());
+    }
+  }
+}
+
 export {
   isInfant,
   isCastle,
@@ -42,5 +79,8 @@ export {
   isLeapYear,
   getLetter,
   normalizeUrl,
-  isAbsNumber
+  isAbsNumber,
+  convertText,
+  getNumberExplanation,
+  logDOMNodes
 }

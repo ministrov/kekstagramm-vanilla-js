@@ -24,10 +24,10 @@ const LIKES = {
   MAX: 200
 }
 
-const Comments = {
-  MIN: 1,
-  MAX: 5
-}
+// const Comments = {
+//   MIN: 1,
+//   MAX: 5
+// }
 
 let photos = [];
 
@@ -86,6 +86,5 @@ const addPhotos = () => {
 
 export {
   photos,
-  addPhotos,
-  // createPhotos
+  addPhotos
 }
