@@ -1,4 +1,5 @@
 import { isEscKey } from "./utils.js";
+import { effectLevel, lastClass } from "./effects.js";
 
 const Scale = {
   MAX: 100,
@@ -6,14 +7,14 @@ const Scale = {
   STEP: 25
 }
 
-const body = document.documentElement;
+const body = document.querySelector('body');
 const uploadModal = document.querySelector('.img-upload__overlay');
 const uploadInput = document.querySelector('#upload-file');
 const uploadModalClose = document.querySelector('.img-upload__cancel');
 
 // Open uploadModal after uploading file with picture
 uploadInput.addEventListener('change', (evt) => {
-  // resetSettings();
+  resetSettings();
   console.log(evt.target);
   uploadModal.classList.remove('hidden');
   body.classList.remove('modal-open');
@@ -68,8 +69,8 @@ buttonPlus.addEventListener('click', () => {
 buttonMinus.addEventListener('click', () => {
   let scale = parseInt(scaleValue.value, 10) - Scale.STEP;
 
-  if (scale <= Step.MIN) {
-    scale = Step.MIN;
+  if (scale <= Scale.MIN) {
+    scale = Scale.MIN;
   }
 
   scaleValue.value = scale + '%';
