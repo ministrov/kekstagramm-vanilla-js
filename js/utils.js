@@ -1,3 +1,8 @@
+const Keys = {
+  ESC: 'Esc',
+  ESCAPE: 'Escape'
+}
+
 /**
  * The function that get number in range from min to max
  * @param {Number} min From minimun number
@@ -63,7 +68,7 @@ const getRandomArrayElement = (array) => {
 */
 
 const isEscKey = (evt) => {
-  return evt.key === 'Escape' || evt.key === 'Esc';
+  return evt.key === Keys.ESCAPE || evt.key === Keys.ESC;
 }
 
 export {
