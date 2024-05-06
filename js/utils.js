@@ -71,11 +71,24 @@ const isEscKey = (evt) => {
   return evt.key === Keys.ESCAPE || evt.key === Keys.ESC;
 }
 
+/**
+ * The function predicat that check
+ * @param {Object} evt
+*/
+
+const onEscapeDown = (evt) => {
+  if (evt.key === (Keys.ESCAPE || Keys.ESC)) {
+    evt.preventDefault();
+    evt.stopPropagation();
+  }
+}
+
 export {
   getNumerInRange,
   checkStrLength,
   getRandomArrayElement,
   getHiddenCard,
   capitalize,
-  isEscKey
+  isEscKey,
+  onEscapeDown
 }
