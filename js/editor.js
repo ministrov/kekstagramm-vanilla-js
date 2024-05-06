@@ -13,9 +13,8 @@ const uploadInput = document.querySelector('#upload-file');
 const uploadModalClose = document.querySelector('.img-upload__cancel');
 
 // Open uploadModal after uploading file with picture
-uploadInput.addEventListener('change', (evt) => {
+uploadInput.addEventListener('change', () => {
   resetSettings();
-  console.log(evt.target);
   uploadModal.classList.remove('hidden');
   body.classList.remove('modal-open');
 });
@@ -61,6 +60,8 @@ buttonPlus.addEventListener('click', () => {
     scale = Scale.MAX;
   }
 
+  console.log(scale);
+
   scaleValue.value = scale + '%';
   scale = scale / 100;
   imagePreview.style.transform = 'scale(' + scale + ')';
@@ -72,6 +73,8 @@ buttonMinus.addEventListener('click', () => {
   if (scale <= Scale.MIN) {
     scale = Scale.MIN;
   }
+
+  console.log(scale);
 
   scaleValue.value = scale + '%';
   scale = scale / 100;
