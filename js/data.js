@@ -1,4 +1,4 @@
-import { getNumerInRange, getRandomArrayElement } from './utils.js';
+import { getNumberInRange, getRandomArrayElement } from './utils.js';
 
 const PHOTO_COUNT = 25;
 const MESSAGES = [
@@ -52,10 +52,10 @@ const names = [
 const addComments = () => {
   const commentsArr = [];
 
-  for (let i = 0; i < getNumerInRange(3, 10); i++) {
+  for (let i = 0; i < getNumberInRange(3, 10); i++) {
     commentsArr.push({
-      id: getNumerInRange(0, 999),
-      avatar: 'img/avatar-' + getNumerInRange(1, 6) + '.svg',
+      id: getNumberInRange(0, 999),
+      avatar: 'img/avatar-' + getNumberInRange(1, 6) + '.svg',
       message: getRandomArrayElement(MESSAGES),
       name: getRandomArrayElement(names)
     });
@@ -66,7 +66,7 @@ const addComments = () => {
 
 
 /**
- *Function need to return an array with 25 object of user's photos
+ *  The function creates an array with 25 objects of user's photos
  * @returns {Array} Array of 25 generated objects
 */
 
@@ -76,7 +76,7 @@ const addPhotos = () => {
       id: i,
       url: 'photos/' + (i + 1) + '.jpg',
       description: getRandomArrayElement(DESCRIPTION),
-      likes: getNumerInRange(LIKES.MIN, LIKES.MAX),
+      likes: getNumberInRange(LIKES.MIN, LIKES.MAX),
       comments: addComments(),
     })
   }

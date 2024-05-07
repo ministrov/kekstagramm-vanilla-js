@@ -13,9 +13,8 @@ const uploadInput = document.querySelector('#upload-file');
 const uploadModalClose = document.querySelector('.img-upload__cancel');
 
 // Open uploadModal after uploading file with picture
-uploadInput.addEventListener('change', (evt) => {
+uploadInput.addEventListener('change', () => {
   resetSettings();
-  console.log(evt.target);
   uploadModal.classList.remove('hidden');
   body.classList.remove('modal-open');
 });
@@ -54,6 +53,13 @@ const resetSettings = () => {
   effectLevel.classList.add('visually-hidden');
 }
 
+const getScaleValue = (scale) => {
+  // console.log(scale);
+  scaleValue.value = scale + '%';
+  scale = scale / 100;
+  imagePreview.style.transform = 'scale(' + scale + ')';
+}
+
 buttonPlus.addEventListener('click', () => {
   let scale = parseInt(scaleValue.value, 10) + Scale.STEP;
 
@@ -61,9 +67,7 @@ buttonPlus.addEventListener('click', () => {
     scale = Scale.MAX;
   }
 
-  scaleValue.value = scale + '%';
-  scale = scale / 100;
-  imagePreview.style.transform = 'scale(' + scale + ')';
+  getScaleValue(scale);
 });
 
 buttonMinus.addEventListener('click', () => {
@@ -73,7 +77,5 @@ buttonMinus.addEventListener('click', () => {
     scale = Scale.MIN;
   }
 
-  scaleValue.value = scale + '%';
-  scale = scale / 100;
-  imagePreview.style.transform = 'scale(' + scale + ')';
+  getScaleValue(scale);
 });

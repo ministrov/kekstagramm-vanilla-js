@@ -10,7 +10,7 @@ const Keys = {
  * @returns {Number} random number in range from min to max
 */
 
-const getNumerInRange = (min, max) => {
+const getNumberInRange = (min, max) => {
   if (min < 0 || max < 0) return;
 
   if (max < min) {
@@ -58,7 +58,7 @@ const capitalize = (text) => `${text[0].toUpperCase()}${text.slice(1)}`;
 */
 
 const getRandomArrayElement = (array) => {
-  return array[getNumerInRange(0, array.length - 1)];
+  return array[getNumberInRange(0, array.length - 1)];
 }
 
 /**
@@ -71,11 +71,24 @@ const isEscKey = (evt) => {
   return evt.key === Keys.ESCAPE || evt.key === Keys.ESC;
 }
 
+/**
+ * The function predicat that check
+ * @param {Object} evt
+*/
+
+const onEscapeDown = (evt) => {
+  if (evt.key === (Keys.ESCAPE || Keys.ESC)) {
+    evt.preventDefault();
+    evt.stopPropagation();
+  }
+}
+
 export {
-  getNumerInRange,
+  getNumberInRange,
   checkStrLength,
   getRandomArrayElement,
   getHiddenCard,
   capitalize,
-  isEscKey
+  isEscKey,
+  onEscapeDown
 }
