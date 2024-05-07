@@ -1,9 +1,18 @@
-import { addPhotos } from "./data.js";
 import { renderPhotos } from "./userPicture.js";
+import { request } from "./fetch.js";
+import { showError } from "./alerts.js";
 import './editor.js';
 import './effects.js';
 import './validation.js';
+import './fetch.js';
+import './alerts.js';
 
-addPhotos();
+const onSuccess = (data) => {
+  renderPhotos(data.slice());
+};
 
-renderPhotos();
+const onError = () => {
+  showError('Ошибка загрузки, попробуйте еще раз', 'Закрыть');
+};
+
+request(onSuccess, onError, 'GET');

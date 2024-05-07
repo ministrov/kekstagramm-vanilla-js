@@ -1,4 +1,6 @@
 import { isEscKey } from "./utils.js";
+import { request } from "./fetch.js";
+import { showError, showSuccess } from "./alerts.js";
 import { effectLevel, lastClass } from "./effects.js";
 
 const Scale = {
@@ -78,4 +80,23 @@ buttonMinus.addEventListener('click', () => {
   }
 
   getScaleValue(scale);
+});
+
+// Send data to server from form
+const uploadForm = document.querySelector('.img-upload__form');
+
+const onSuccess = () => {
+  showSuccess('Awesome, the form was sent!!!');
+  closeModal();
+  uploadForm.reset();
+}
+
+const onError = () => {
+  showError('OOps, there was going wrong!!!');
+}
+
+uploadForm.addEventListener('submit', (evt) => {
+  evt.preventDefault();
+
+  request(onSuccess, onError, 'POST', new FormData(evt.target));
 });
