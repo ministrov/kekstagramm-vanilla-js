@@ -53,6 +53,13 @@ const resetSettings = () => {
   effectLevel.classList.add('visually-hidden');
 }
 
+const getScaleValue = (scale) => {
+  // console.log(scale);
+  scaleValue.value = scale + '%';
+  scale = scale / 100;
+  imagePreview.style.transform = 'scale(' + scale + ')';
+}
+
 buttonPlus.addEventListener('click', () => {
   let scale = parseInt(scaleValue.value, 10) + Scale.STEP;
 
@@ -60,11 +67,7 @@ buttonPlus.addEventListener('click', () => {
     scale = Scale.MAX;
   }
 
-  console.log(scale);
-
-  scaleValue.value = scale + '%';
-  scale = scale / 100;
-  imagePreview.style.transform = 'scale(' + scale + ')';
+  getScaleValue(scale);
 });
 
 buttonMinus.addEventListener('click', () => {
@@ -74,9 +77,5 @@ buttonMinus.addEventListener('click', () => {
     scale = Scale.MIN;
   }
 
-  console.log(scale);
-
-  scaleValue.value = scale + '%';
-  scale = scale / 100;
-  imagePreview.style.transform = 'scale(' + scale + ')';
+  getScaleValue(scale);
 });
