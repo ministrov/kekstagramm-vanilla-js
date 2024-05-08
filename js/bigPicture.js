@@ -50,7 +50,6 @@ const renderComments = (comments) => {
 }
 
 const showBigPicture = (picture) => {
-  // console.log(picture);
   body.classList.add('modal-open');
   bigPicture.querySelector('.big-picture__img > img').src = picture.url;
   bigPicture.querySelector('.likes-count').textContent = picture.likes;

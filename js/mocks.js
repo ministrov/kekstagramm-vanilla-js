@@ -70,7 +70,7 @@ const addComments = () => {
  * @returns {Array} Array of 25 generated objects
 */
 
-const addPhotos = () => {
+const generateMockPhotos = () => {
   for (let i = 0; i < PHOTO_COUNT; i++) {
     photos.push({
       id: i,
@@ -86,6 +86,6 @@ const addPhotos = () => {
 
 export {
   photos,
-  addPhotos,
+  generateMockPhotos,
   DESCRIPTION
 }

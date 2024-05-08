@@ -1,6 +1,6 @@
 import { renderPhotos } from "./userPicture.js";
-import { addPhotos } from "./mocks.js";
-import { sumNumbersFromRange, reverseString } from "./functions.js";
+import { generateMockPhotos } from "./mocks.js";
+// import { sumNumbersFromRange, reverseString } from "./functions.js";
 // import { request } from "./fetch.js";
 // import { showError } from "./alerts.js";
 // import { DESCRIPTION } from './mocks.js';
@@ -11,12 +11,12 @@ import './validation.js';
 import './fetch.js';
 import './alerts.js';
 
-addPhotos();
+generateMockPhotos();
 
 renderPhotos();
 
-console.log(sumNumbersFromRange(2, 4));
-console.log(reverseString('Anton'));
+// console.log(sumNumbersFromRange(2, 4));
+// console.log(reverseString('Anton'));
 
 // const onSuccess = (data) => {
 //   // console.log(data);
