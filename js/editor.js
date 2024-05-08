@@ -1,5 +1,5 @@
 import { isEscKey } from "./utils.js";
-import { request } from "./fetch.js";
+// import { request } from "./fetch.js";
 import { showError, showSuccess } from "./alerts.js";
 import { effectLevel, lastClass } from "./effects.js";
 
@@ -98,5 +98,15 @@ const onError = () => {
 uploadForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
 
-  request(onSuccess, onError, 'POST', new FormData(evt.target));
+  // Реализовать возможность добавления фотки в массив
+
+  try {
+    onSuccess();
+  } catch (e) {
+    console.log(e);
+    onError();
+  }
+  console.log('Form has been submitted');
+
+  // request(onSuccess, onError, 'POST', new FormData(evt.target));
 });

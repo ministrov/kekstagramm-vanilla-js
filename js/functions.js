@@ -70,6 +70,58 @@ const logDOMNodes = () => {
   }
 }
 
+const sumNumbersFromRange = (start, finish) => {
+  let i = start;
+  let sum = 0;
+
+  while (i <= finish) {
+    sum += i;
+    i++;
+  }
+
+  return sum;
+}
+
+const joinNumbersFromRange = (start, finish) => {
+  let i = start;
+  let result = '';
+
+  while (i <= finish) {
+    result = `${result}${i}`;
+    i++;
+  }
+
+  return result;
+};
+
+const reverseString = (string) => {
+  let i = 0;
+  let result = '';
+
+  while (i < string.length) {
+    result = `${string[i]}${result}`;
+    i++;
+  }
+
+  return result;
+};
+
+const mySubstr = (string, length) => {
+  let resultString = '';
+  let i = 0;
+  while (i < length) {
+    resultString += string[i];
+    i += 1;
+  }
+
+  return resultString;
+};
+
+// My result
+const mySubstr1 = (string, length) => {
+  return string.substring(string, length);
+}
+
 export {
   isInfant,
   isCastle,
@@ -82,5 +134,10 @@ export {
   isAbsNumber,
   convertText,
   getNumberExplanation,
-  logDOMNodes
+  logDOMNodes,
+  sumNumbersFromRange,
+  joinNumbersFromRange,
+  reverseString,
+  mySubstr,
+  mySubstr1
 }

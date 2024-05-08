@@ -1,3 +1,4 @@
+import { photos } from "./mocks.js";
 import { showBigPicture } from "./bigPicture.js";
 
 const picturesList = document.querySelector('.pictures');
@@ -17,7 +18,7 @@ const renderPhoto = (picture) => {
   return photoPreview;
 }
 
-const renderPhotos = (photos) => {
+const renderPhotos = () => {
   let userPhotosListFragment = document.createDocumentFragment();
 
   photos.forEach((photo) =>{

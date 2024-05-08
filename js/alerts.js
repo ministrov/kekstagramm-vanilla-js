@@ -62,7 +62,7 @@ const showSuccess = (text) => {
     removeAlert('.success');
   })
 
-  document.addEventListener('keydown', onAlertEscKeydown);
+  document.addEventListener('keydown', onAlertEscKeyDown);
 
   successFragment.appendChild(successElement);
   main.appendChild(successFragment);
