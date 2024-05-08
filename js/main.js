@@ -8,7 +8,10 @@ import './fetch.js';
 import './alerts.js';
 
 const onSuccess = (data) => {
-  renderPhotos(data.slice());
+  console.log(data);
+  renderPhotos(data.map(item => {
+    console.log(item);
+  }));
 };
 
 const onError = () => {
