@@ -7,7 +7,7 @@ const renderPhoto = (picture) => {
   const photoPreview = pictureTemplate.cloneNode(true);
   photoPreview.querySelector('.picture__img').src = picture.url;
   photoPreview.querySelector('.picture__likes').textContent = picture.likes;
-  // photoPreview.querySelector('.picture__comments').textContent = picture.comments.length;
+  photoPreview.querySelector('.picture__comments').textContent = picture.comments.length;
 
   photoPreview.addEventListener('click', (evt) => {
     evt.preventDefault();
@@ -18,11 +18,11 @@ const renderPhoto = (picture) => {
 }
 
 const renderPhotos = (photos) => {
-  console.log(photos);
+  // console.log(photos);
   let userPhotosListFragment = document.createDocumentFragment();
 
   photos.forEach((photo) =>{
-    console.log(photo);
+    // console.log(photo);
     userPhotosListFragment.appendChild(renderPhoto(photo));
   });
 
