@@ -10,7 +10,7 @@ const request = async (onSuccess, onError, method, data) => {
   })
   .then((response) => response.json())
   .then((response) => {
-    console.log(response);
+    // console.log(response);
     onSuccess(response);
   })
   .catch(() => {

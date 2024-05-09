@@ -1,5 +1,6 @@
 import { renderPhotos } from "./userPicture.js";
 import { generateMockPhotos } from "./mocks.js";
+import { countChar } from "./helpers.js";
 // import { sumNumbersFromRange, reverseString } from "./functions.js";
 // import { request } from "./fetch.js";
 // import { showError } from "./alerts.js";
@@ -14,6 +15,8 @@ import './alerts.js';
 generateMockPhotos();
 
 renderPhotos();
+
+console.log(countChar('dfdfdfdfdf', 'd'));
 
 // console.log(sumNumbersFromRange(2, 4));
 // console.log(reverseString('Anton'));

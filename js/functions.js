@@ -1,23 +1,11 @@
-const isInfant = (age) => age < 1;
-
-const isCastle = (type) => type === 'Castle';
-
-const isEven = (number) => number % 2 === 0 ? true : false;
-
-const isFirstLetterInUpperCase = (string) => {
-  const firstLetter = string[0];
-
-  return firstLetter.toUpperCase() === firstLetter;
-}
-
-const isInternationalPhone = (phone) => phone[0] === '+';
-
 const getLetter = (string, position) => string[position - 1] || '';
 
-const isLeapYear = (year) => {
-  const result = year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0);
-  return result;
+const getHiddenCard = (cardNumber, starsCount = 4) => {
+  const visibleDigitsLine = cardNumber.slice(12);
+  return `${'*'.repeat(starsCount)}${visibleDigitsLine}`;
 };
+
+const capitalize = (text) => `${text[0].toUpperCase()}${text.slice(1)}`;
 
 const normalizeUrl = (site) => {
   let normalizedUrl;
@@ -30,8 +18,6 @@ const normalizeUrl = (site) => {
 
   return normalizedUrl;
 }
-
-const isAbsNumber = (number) => (number >= 0 ? number : -number);
 
 const convertText = (str) => {
   if (str === '') return '';
@@ -56,8 +42,8 @@ const getNumberExplanation = (number) => {
 
 const logDOMNodes = () => {
   const mainDocument = document.documentElement;
-  console.log(mainDocument);
-  // console.log(mainDocument.children);
+  // console.log(mainDocument);
+  // // console.log(mainDocument.children);
 
   for (let i = 0; i < mainDocument.children.length; i++) {
     const child = mainDocument.children[i];
@@ -123,15 +109,8 @@ const mySubstr1 = (string, length) => {
 }
 
 export {
-  isInfant,
-  isCastle,
-  isEven,
-  isFirstLetterInUpperCase,
-  isInternationalPhone,
-  isLeapYear,
   getLetter,
   normalizeUrl,
-  isAbsNumber,
   convertText,
   getNumberExplanation,
   logDOMNodes,
@@ -139,5 +118,7 @@ export {
   joinNumbersFromRange,
   reverseString,
   mySubstr,
-  mySubstr1
+  mySubstr1,
+  capitalize,
+  getHiddenCard
 }
