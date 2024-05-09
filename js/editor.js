@@ -1,5 +1,4 @@
 import { isEscKey } from "./utils.js";
-// import { request } from "./fetch.js";
 import { showError, showSuccess } from "./alerts.js";
 import { effectLevel, lastClass } from "./effects.js";
 
@@ -56,7 +55,6 @@ const resetSettings = () => {
 }
 
 const getScaleValue = (scale) => {
-  // console.log(scale);
   scaleValue.value = scale + '%';
   scale = scale / 100;
   imagePreview.style.transform = 'scale(' + scale + ')';
