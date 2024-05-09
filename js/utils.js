@@ -3,6 +3,16 @@ const Keys = {
   ESCAPE: 'Escape'
 }
 
+const Colors = {
+  FIREBALL: [
+    '#ee4830',
+    '#30a8ee',
+    '#5ce6c0',
+    '#e848d5',
+    '#e6e848',
+  ],
+};
+
 /**
  * The function that get number in range from min to max
  * @param {Number} min From minimun number
@@ -68,5 +78,6 @@ export {
   checkStrLength,
   getRandomArrayElement,
   isEscKey,
-  onEscapeDown
+  onEscapeDown,
+  Colors
 }
