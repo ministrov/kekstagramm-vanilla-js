@@ -11,6 +11,7 @@ import './effects.js';
 import './validation.js';
 import './fetch.js';
 import './alerts.js';
+import './filter.js';
 
 // getData((wizards) => {
 //   renderSimilarList(wizards);
