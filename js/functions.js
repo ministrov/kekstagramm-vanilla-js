@@ -1,3 +1,8 @@
+const Default = {
+  COAT_COLOR: 'rgb(101, 137, 164)',
+  EYES_COLOR: 'black',
+};
+
 const getLetter = (string, position) => string[position - 1] || '';
 
 const getHiddenCard = (cardNumber, starsCount = 4) => {
@@ -108,6 +113,30 @@ const mySubstr1 = (string, length) => {
   return string.substring(string, length);
 }
 
+const getSomeoneRank = (someone) => {
+  const coatColorInput = document.querySelector('[name="coat-color"]');
+  const eyesColorInput = document.querySelector('[name="eyes-color"]');
+
+  let rank = 0;
+
+  if (someone.colorCoat === (coatColorInput.value || Default.COAT_COLOR)) {
+    rank += 2;
+  }
+
+  if (someone.colorEyes === (eyesColorInput.value || Default.EYES_COLOR)) {
+    rank += 1;
+  }
+
+  return rank;
+}
+
+const compareSomething = (something1, something2) => {
+  const rankA = getSomeoneRank(something1);
+  const rankB = getSomeoneRank(something2);
+
+  return rankB - rankA;
+}
+
 export {
   getLetter,
   normalizeUrl,
@@ -120,5 +149,7 @@ export {
   mySubstr,
   mySubstr1,
   capitalize,
-  getHiddenCard
+  getHiddenCard,
+  getSomeoneRank,
+  compareSomething
 }
