@@ -31,6 +31,26 @@ const getNumberInRange = (min, max) => {
 }
 
 /**
+ * This function is shuffling an array's elements
+ * @param {Array} array
+ * @returns {Array} new array of shuffling elements
+*/
+
+const shuffleArray = (array) => {
+  let j, temp;
+
+  for (let i = array.length - 1; i > 0; i--) {
+    j = Math.floor(Math.random() * (i + 1));
+    console.log(j);
+    temp = array[j];
+    array[j] = array[i];
+    array[i] = temp;
+  }
+
+  return array;
+}
+
+/**
  * The function checks the string length
  * @param {String} str The string to check
  * @param {Number} sign Max length of the string
@@ -77,6 +97,7 @@ export {
   getNumberInRange,
   checkStrLength,
   getRandomArrayElement,
+  shuffleArray,
   isEscKey,
   onEscapeDown,
   Colors
