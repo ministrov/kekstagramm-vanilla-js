@@ -1,3 +1,7 @@
+/* global noUiSlider:readonly */
+
+const DEFAULT_EFFECT_LEVEL = 100;
+
 const Slider = {
   MAX: 100,
   MIN: 0,
@@ -47,7 +51,7 @@ const onEffectRadioGroupClick = (evt) => {
     if (lastClass !== '') {
       uploadPreviewImg.classList.remove(lastClass);
     }
-    effectLevelSlider.noUiSlider.set(100);
+    effectLevelSlider.noUiSlider.set(DEFAULT_EFFECT_LEVEL);
     let currentClass = evt.target.classList[1];
     lastClass = currentClass;
 
