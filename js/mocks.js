@@ -29,8 +29,6 @@ const LIKES = {
 //   MAX: 5
 // }
 
-let photos = [];
-
 const names = [
   'Дима',
   'Тимофей',
@@ -67,10 +65,11 @@ const addComments = () => {
 
 /**
  *  The function creates an array with 25 objects of user's photos
+ * @param {Array} of photos
  * @returns {Array} Array of 25 generated objects
 */
 
-const generateMockPhotos = () => {
+const generateMockPhotos = (photos) => {
   for (let i = 0; i < PHOTO_COUNT; i++) {
     photos.push({
       id: i,
@@ -85,7 +84,6 @@ const generateMockPhotos = () => {
 // const createPhotos = () => new Array(PHOTO_COUNT).fill(null).map(() => addPhotos());
 
 export {
-  photos,
   generateMockPhotos,
   DESCRIPTION
 }

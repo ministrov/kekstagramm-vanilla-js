@@ -10,6 +10,8 @@ const commentsCount = bigPicture.querySelector('.social__comment-count');
 // commentsCount.classList.add('hidden');
 // commentsLoader.classList.add('hidden');
 
+console.log(commentsCount);
+
 const onBigPictureCloseClick = () => {
   bigPicture.classList.add('hidden');
   body.classList.remove('modal-open');
@@ -32,13 +34,13 @@ const commentTemplate = document.querySelector('#comment').content.querySelector
 const commentsList = document.querySelector('.social__comments');
 
 const renderComment = (comment) => {
-  const commentClone = commentTemplate.cloneNode(true);
+  const commentElement = commentTemplate.cloneNode(true);
 
-  commentClone.querySelector('.social__picture').src = comment.avatar;
-  commentClone.querySelector('.social__picture').alt = comment.name;
-  commentClone.querySelector('.social__text').textContent = comment.message;
+  commentElement.querySelector('.social__picture').src = comment.avatar;
+  commentElement.querySelector('.social__picture').alt = comment.name;
+  commentElement.querySelector('.social__text').textContent = comment.message;
 
-  return commentClone;
+  return commentElement;
 }
 
 const renderComments = (comments) => {
