@@ -45,8 +45,23 @@ const makeItFunny = (str, n) => {
   return result;
 };
 
+const encrypteText = (text) => {
+  let result = '';
+
+  for (let i = 0; i < text.length; i += 2) {
+    const nextSymbol = text[i + 1] || '';
+
+    console.log(nextSymbol);
+
+    result = `${result}${nextSymbol}${text[i]}`;
+  }
+
+  return result;
+}
+
 export {
   countChar,
   countChars2,
-  makeItFunny
+  makeItFunny,
+  encrypteText
 }

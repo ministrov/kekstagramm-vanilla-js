@@ -10,8 +10,6 @@ const commentsCount = bigPicture.querySelector('.social__comment-count');
 // commentsCount.classList.add('hidden');
 // commentsLoader.classList.add('hidden');
 
-console.log(commentsCount);
-
 const onBigPictureCloseClick = () => {
   bigPicture.classList.add('hidden');
   body.classList.remove('modal-open');
