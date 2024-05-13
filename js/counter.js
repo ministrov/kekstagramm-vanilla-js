@@ -1,4 +1,4 @@
-import { getNumerInRange } from "./utils.js";
+import { getRandomNumerInRange } from "./utils.js";
 
 /**
  * This is a basic closure function
@@ -37,12 +37,12 @@ const makeUniqueRandomIntegerGenerator = (min, max) => {
   const previousValues = [];
 
   return () => {
-    let currentValue = getNumerInRange(min, max);
+    let currentValue = getRandomNumerInRange(min, max);
     if (previousValues.length >= (max - min + 1)) {
       throw new Error('Перебраны все числа из диапазона от ' + min + ' до ' + max);
     }
     while (previousValues.includes(currentValue)) {
-      currentValue = getNumerInRange(min, max);
+      currentValue = getRandomNumerInRange(min, max);
     }
     previousValues.push(currentValue);
     return currentValue;

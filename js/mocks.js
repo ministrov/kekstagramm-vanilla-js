@@ -1,4 +1,4 @@
-import { getNumberInRange, getRandomArrayElement } from './utils.js';
+import { geRandomNumberInRange, getRandomArrayElement } from './utils.js';
 
 const PHOTO_COUNT = 25;
 const MESSAGES = [
@@ -50,10 +50,10 @@ const names = [
 const addComments = () => {
   const commentsArr = [];
 
-  for (let i = 0; i < getNumberInRange(3, 10); i++) {
+  for (let i = 0; i < geRandomNumberInRange(3, 10); i++) {
     commentsArr.push({
-      id: getNumberInRange(0, 999),
-      avatar: 'img/avatar-' + getNumberInRange(1, 6) + '.svg',
+      id: geRandomNumberInRange(0, 999),
+      avatar: 'img/avatar-' + geRandomNumberInRange(1, 6) + '.svg',
       message: getRandomArrayElement(MESSAGES),
       name: getRandomArrayElement(names)
     });
@@ -75,7 +75,7 @@ const generateMockPhotos = (photos) => {
       id: i,
       url: 'photos/' + (i + 1) + '.jpg',
       description: getRandomArrayElement(DESCRIPTION),
-      likes: getNumberInRange(LIKES.MIN, LIKES.MAX),
+      likes: geRandomNumberInRange(LIKES.MIN, LIKES.MAX),
       comments: addComments(),
     })
   }
