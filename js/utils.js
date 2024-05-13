@@ -20,7 +20,7 @@ const Colors = {
  * @returns {Number} random number in range from min to max
 */
 
-const getNumberInRange = (min, max) => {
+const geRandomNumberInRange = (min, max) => {
   if (min < 0 || max < 0) return;
 
   if (max < min) {
@@ -41,7 +41,6 @@ const shuffleArray = (array) => {
 
   for (let i = array.length - 1; i > 0; i--) {
     j = Math.floor(Math.random() * (i + 1));
-    // console.log(j);
     temp = array[j];
     array[j] = array[i];
     array[i] = temp;
@@ -68,7 +67,7 @@ const checkStrLength = (str, sign) => {
 */
 
 const getRandomArrayElement = (array) => {
-  return array[getNumberInRange(0, array.length - 1)];
+  return array[geRandomNumberInRange(0, array.length - 1)];
 }
 
 /**
@@ -94,7 +93,7 @@ const onEscapeDown = (evt) => {
 }
 
 export {
-  getNumberInRange,
+  geRandomNumberInRange,
   checkStrLength,
   getRandomArrayElement,
   shuffleArray,

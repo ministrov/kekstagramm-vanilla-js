@@ -5,6 +5,7 @@ import { encrypteText } from "./helpers.js";
 // import { request } from "./fetch.js";
 // import { showError } from "./alerts.js";
 // import { DESCRIPTION } from './mocks.js';
+import { moveToURL } from "./hexlet-Bom.js";
 import { shuffleArray } from "./utils.js";
 import './editor.js';
 import './effects.js';
@@ -74,4 +75,6 @@ filter.addEventListener('click', onFilterClick);
 // });
 
 // setUserFormSubmit(closeUserModal);
+
+// console.log(moveToURL('https://google.com'));
 
