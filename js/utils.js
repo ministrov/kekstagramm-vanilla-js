@@ -67,7 +67,7 @@ const checkStrLength = (str, sign) => {
 */
 
 const getRandomArrayElement = (array) => {
-  return array[getNumberInRange(0, array.length - 1)];
+  return array[geRandomNumberInRange(0, array.length - 1)];
 }
 
 /**
