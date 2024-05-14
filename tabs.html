@@ -1,0 +1,243 @@
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="css/tictactoo.css">
+  <title>Страница Табов</title>
+</head>
+
+<body>
+  <div class="container m-3">
+    <div class="row">
+      <nav>
+        <div class="nav nav-tabs" id="user-tab" role="tablist">
+          <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
+            type="button" role="tab" aria-controls="nav-home" aria-selected="true">
+            User home
+          </button>
+          <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button"
+            role="tab" aria-controls="nav-profile" aria-selected="false">
+            User profile
+          </button>
+          <button class="nav-link" id="nav-settings-tab" data-bs-toggle="tab" data-bs-target="#nav-settings"
+            type="button" role="tab" aria-controls="nav-settings" aria-selected="false">
+            User settings
+          </button>
+        </div>
+      </nav>
+      <div class="tab-content mb-5" id="user-tabContent">
+        <div class="tab-pane active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+          User home tab
+        </div>
+        <div class="tab-pane" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+          User profile tab
+        </div>
+        <div class="tab-pane" id="nav-settings" role="tabpanel" aria-labelledby="nav-settings-tab">
+          User settings tab
+        </div>
+      </div>
+    </div>
+    <!-- Another tabs -->
+    <div class="row mt-5">
+      <ul class="nav nav-pills" id="appTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="messages-tab" data-bs-toggle="pill" data-bs-target="#messages"
+            type="button" role="tab" aria-controls="messages" aria-selected="false">
+            Messages
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="settings-tab" data-bs-toggle="pill" data-bs-target="#settings" type="button"
+            role="tab" aria-controls="settings" aria-selected="false">
+            Messages settings
+          </button>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane active" id="messages" role="tabpanel" aria-labelledby="messages-tab">
+          Messages tab
+        </div>
+        <div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab">
+          Messages settings tab
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="currentPlayer">
+      <span>Сейчас ходит: <span id="curPlyr">X</span></span>
+    </div>
+
+    <div id="area"></div>
+
+    <div class="stat">
+      <table>
+        <th colspan="2">Статистика</th>
+        <tr>
+          <td>X</td>
+          <td><span id="sX">0</span></td>
+        </tr>
+        <tr>
+          <td>O</td>
+          <td><span id="sO">0</span></td>
+        </tr>
+        <tr>
+          <td>Ничьи</td>
+          <td><span id="sD">0</span></td>
+        </tr>
+      </table>
+    </div>
+
+    <script src="js/main.js"></script>
+  </div>
+  <script>
+    const handle = (/** @type {Event} */ e, /** @type {Element} */ container) => {
+      const targetTab = e.target;
+
+      if (!targetTab) return;
+      // если элемент, на котором произошел клик
+      // уже активный, то делаем возврат
+      if (targetTab.classList.contains('active')) {
+        return;
+      }
+
+      // получем id элемента на котором был клик,
+      // и далее по нему получаем сам элемент
+      const targetTabContentId = targetTab.dataset.bsTarget;
+      const targetTabContent = document.querySelector(targetTabContentId);
+
+      // находим и получаем элемент, который был активным до клика
+      const activeTab = container.querySelector('.active');
+      const activeTabContentId = activeTab.dataset.bsTarget;
+      const activeTabContent = document.querySelector(activeTabContentId);
+
+      // добавляем класс active чтобы сделать элемент,
+      // на котором произошел клик активным
+      targetTab.classList.add('active');
+      targetTabContent.classList.add('active');
+      // удаляем класс с элемента который был активным до клика
+      activeTab.classList.remove('active');
+      activeTabContent.classList.remove('active');
+    };
+
+    // находим все элементы с классом .nav
+    const navs = document.querySelectorAll('.nav');
+
+    // console.log(navs);
+
+    // на каждую кнопку в nav вешаем событие
+    // для этого обходим все элементы и на каждый вешаем обработчик по событию click
+    navs.forEach((nav) => {
+      const tabs = nav.querySelectorAll('[data-bs-toggle]');
+      tabs.forEach((tab) => {
+        tab.addEventListener('click', (event) => handle(event, nav));
+      });
+    });
+
+    // Реализация игры крестики нолики
+
+    var area = document.getElementById('area');
+    var cell = document.getElementsByClassName('cell');
+    var currentPlayer = document.getElementById('curPlyr');
+
+    var player = "x";
+    var stat = {
+      'x': 0,
+      'o': 0,
+      'd': 0
+    }
+    var winIndex = [
+      [1, 2, 3],
+      [4, 5, 6],
+      [7, 8, 9],
+      [1, 4, 7],
+      [2, 5, 8],
+      [3, 6, 9],
+      [1, 5, 9],
+      [3, 5, 7]
+    ];
+
+    for (var i = 1; i <= 9; i++) {
+      area.innerHTML += "<div class='cell' pos=" + i + "></div>";
+    }
+
+    for (var i = 0; i < cell.length; i++) {
+      cell[i].addEventListener('click', cellClick, false);
+    }
+
+    function cellClick() {
+
+      var data = [];
+
+      if (!this.innerHTML) {
+        this.innerHTML = player;
+      } else {
+        alert("Ячейка занята");
+        return;
+      }
+
+      for (var i in cell) {
+        if (cell[i].innerHTML == player) {
+          data.push(parseInt(cell[i].getAttribute('pos')));
+        }
+      }
+
+      if (checkWin(data)) {
+        stat[player] += 1;
+        restart("Выграл: " + player);
+      } else {
+        var draw = true;
+        for (var i in cell) {
+          if (cell[i].innerHTML == '') draw = false;
+        }
+        if (draw) {
+          stat.d += 1;
+          restart("Ничья");
+        }
+      }
+
+      player = player == "x" ? "o" : "x";
+      currentPlayer.innerHTML = player.toUpperCase();
+    }
+
+    function checkWin(data) {
+      for (var i in winIndex) {
+        var win = true;
+        for (var j in winIndex[i]) {
+          var id = winIndex[i][j];
+          var ind = data.indexOf(id);
+
+          if (ind == -1) {
+            win = false
+          }
+        }
+
+        if (win) return true;
+      }
+      return false;
+    }
+
+    function restart(text) {
+
+      alert(text);
+      for (var i = 0; i < cell.length; i++) {
+        cell[i].innerHTML = '';
+      }
+      updateStat();
+    }
+
+    function updateStat() {
+      document.getElementById('sX').innerHTML = stat.x;
+      document.getElementById('sO').innerHTML = stat.o;
+      document.getElementById('sD').innerHTML = stat.d;
+    }
+  </script>
+</body>
+
+</html>
