@@ -1,3 +1,5 @@
+  import { htmlEscape } from 'escape-goat';
+
 /**
  * При вызове она должна делать переход на страницу и возвращать начальную часть строки с именем совместимого браузера (User agent) * и текущей открытой страницей.
  * @param {String} href
@@ -29,8 +31,8 @@ const prettify = (document) => {
   const divs = [...document.getElementsByTagName('div')];
   divs.forEach((div) => {
     const textNodes = [...div.childNodes]
-        .filter((child) => child instanceof Text)
-        .filter((child) => child.textContent.trim() !== '');
+      .filter((child) => child instanceof Text)
+      .filter((child) => child.textContent.trim() !== '');
     textNodes.forEach((node) => {
       const p = document.createElement('p');
       p.textContent = node.textContent;
@@ -79,10 +81,46 @@ const renderAlertIntoDiv = () => {
   });
 };
 
+//Напишите и экспортируйте функцию по умолчанию, которая при отправке формы получает из нее данные и экранирует их. Когда форма заполнена и отправлена (нажата кнопка send), то элемент формы заменяется на другой элемент. Другими словами, вместо формы появляется документ с такой структурой:
+{/* <div>
+  <p>Feedback has been sent</p>
+  <div>Email: test@email.com</div>
+  <div>Name: Matz</div>
+  <div>Comment: My Comment</div>
+</div>
+Для экранирования введенных данных используйте функцию htmlEscape() из библиотеки escape-goat. */}
+
+const getFormDataValueAndRender = () => {
+  // BEGIN (write your solution here)
+  const render = (element, data) => {
+    const div = document.createElement('div');
+    const { email, name, comment } = data;
+    div.innerHTML = `
+      <p>Feedback has been sent</p>
+      <div>Email: ${htmlEscape(email)}</div>
+      <div>Name: ${htmlEscape(name)}</div>
+      <div>Comment: ${htmlEscape(comment)}</div>
+    `;
+    element.replaceWith(div);
+  };
+
+  return () => {
+    const formElement = document.querySelector('.feedback-form');
+    const handle = (e) => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+
+      render(formElement, Object.fromEntries(formData));
+    };
+    formElement.addEventListener('submit', handle);
+  };
+};
+
 export {
   moveToURL,
   findAllParagraphs,
   prettify,
   normalizeClasses,
-  renderAlertIntoDiv
+  renderAlertIntoDiv,
+  getFormDataValueAndRender
 }

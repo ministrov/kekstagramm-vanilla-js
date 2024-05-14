@@ -6,7 +6,6 @@ import { generateMockPhotos } from "./mocks.js";
 // import { showError } from "./alerts.js";
 // import { DESCRIPTION } from './mocks.js';
 // import { moveToURL } from "./hexlet-Bom.js";
-import app from './tabs.js';
 import { shuffleArray } from "./utils.js";
 import './editor.js';
 import './effects.js';
@@ -78,20 +77,19 @@ filter.addEventListener('click', onFilterClick);
 // setUserFormSubmit(closeUserModal);
 
 // console.log(moveToURL('https://google.com'));
-app();
 
 // Пытаюсь вместо страницы фоток , по нажатию на ссылку табов, показать страницу табов
 
-const html = document.querySelector('html');
-const tabsContent = document.querySelector('#tabs').content;
-const tabLink = document.querySelector('[data-tabs="data-tabs"]');
+// const html = document.querySelector('html');
+// const tabsContent = document.querySelector('#tabs').content;
+// const tabLink = document.querySelector('[data-tabs="data-tabs"]');
 
-document.addEventListener('click', (evt) => {
-  if (evt.target === tabLink) {
-    html.innerHTML = '';
-    html.innerHTML = tabsContent.innerHTML;
-  }
-});
-console.log(tabsContent);
-console.log(html);
+// document.addEventListener('click', (evt) => {
+//   if (evt.target === tabLink) {
+//     html.innerHTML = '';
+//     html.innerHTML = tabsContent.innerHTML;
+//   }
+// });
+// console.log(tabsContent);
+// console.log(html);
 
