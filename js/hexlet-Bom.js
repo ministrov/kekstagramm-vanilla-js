@@ -27,6 +27,11 @@ const findAllParagraphs = (root) => {
     .map((element) => element.innerHTML.trim());
 };
 
+/**
+ * This function find all divs and check it whether their have a text content or don't have
+ * @param {Object} document
+ */
+
 const prettify = (document) => {
   const divs = [...document.getElementsByTagName('div')];
   divs.forEach((div) => {
@@ -40,6 +45,11 @@ const prettify = (document) => {
     });
   });
 };
+
+/**
+ *  This function normalize all cebab-case classes to camel-case style
+ * @param {Object} document
+ */
 
 const normalizeClasses = (document) => {
   const allNodes = [...document.getElementsByTagName('*')];
@@ -115,6 +125,24 @@ const getFormDataValueAndRender = () => {
     formElement.addEventListener('submit', handle);
   };
 };
+
+/** // Локальное состояние
+// Правильный способ работы с состоянием – его локализация относительно приложения. Например, в случае автокомплитов это может быть функция:
+ * @param {String}
+ * @returns
+*/
+
+export default (selector) => {
+  const state = {
+    // Начальное состояние конкретного автокомплита
+  };
+
+  const el = document.querySelector(selector);
+  // Логика автокомплита
+};
+
+// const autocomplete1 = addAutocomplete('.input1');
+// const autocomplete2 = addAutocomplete('.input2');
 
 export {
   moveToURL,
