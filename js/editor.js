@@ -104,7 +104,7 @@ uploadForm.addEventListener('submit', (evt) => {
     console.log(e);
     onError();
   }
-  console.log('Form has been submitted');
+  // console.log('Form has been submitted');
 
   // request(onSuccess, onError, 'POST', new FormData(evt.target));
 });
