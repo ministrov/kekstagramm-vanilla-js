@@ -6,23 +6,28 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="css/tabs.css">
+  <link rel="stylesheet" href="css/tabs.css" />
   <title>Страница Табов</title>
 </head>
 
 <body>
-  <header class="page-header  container">
+  <header class="page-header container">
     <div class="page-header__wrapper">
-      <div class="page-header__copyright  copyright">
-        <a class="copyright__link  copyright__link--image" href="https://htmlacademy.ru/intensive/javascript">
-          <img src="img/htmla-logo.svg" width="130" height="45" alt="HTML Academy">
+      <div class="page-header__logo logo">
+        <a class="logo__link" href="index.html">
+          <p class="logo__developer">Anton Zhilin</p>
         </a>
       </div>
-      <ul class="page-header__contacts  contacts">
-        <li><a type=button class="img-filters__button  img-filters__button--active" id="filter-default">Фотографии</a>
+      <ul class="page-header__img-filters img-filters">
+        <li class="img-filters__button img-filters__button--active">
+          <a class="img-filters__link" href="index.html">Фотографии</a>
         </li>
-        <li><a type=button class="img-filters__button" href="#" id="filter-random">О нас</a></li>
-        <li><a type=button class="img-filters__button" href="tabs.html" id="filter-random">Табы</a></li>
+        <li class="img-filters__button">
+          <a class="img-filters__link" href="#">О нас</a>
+        </li>
+        <li class="img-filters__button">
+          <a class="img-filters__link" href="tabs.html">Табы</a>
+        </li>
       </ul>
     </div>
   </header>
@@ -37,8 +42,8 @@
                 type="button" role="tab" aria-controls="nav-home" aria-selected="true">
                 User home
               </button>
-              <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button"
-                role="tab" aria-controls="nav-profile" aria-selected="false">
+              <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
+                type="button" role="tab" aria-controls="nav-profile" aria-selected="false">
                 User profile
               </button>
               <button class="nav-link" id="nav-settings-tab" data-bs-toggle="tab" data-bs-target="#nav-settings"
@@ -88,7 +93,6 @@
     </div>
 
     <div class="content container">
-
       <div class="currentPlayer">
         <span>Сейчас ходит: <span id="curPlyr">X</span></span>
       </div>
@@ -115,33 +119,42 @@
     </div>
   </main>
 
-  <footer class="page-footer  container">
+  <footer class="page-footer container">
     <div class="page-footer__wrapper">
-      <div class="page-footer__copyright  copyright">
-        <a class="copyright__link  copyright__link--image" href="https://htmlacademy.ru/intensive/javascript"><img
-            src="img/htmla-logo.svg" width="130" height="45" alt="HTML Academy"></a>
-        <p>Сделано Антоном Жилиным</p>
+      <div class="page-header__logo logo">
+        <a class="logo__link" href="index.html">
+          <p class="logo__developer">Anton Zhilin</p>
+        </a>
       </div>
-      <ul class="page-footer__contacts  contacts">
-        <li><a href="https://twitter.com/htmlacademy_ru" class="contacts__link  contacts__link--twitter">Twitter</a>
+      <ul class="page-footer__contacts contacts">
+        <li>
+          <a href="https://twitter.com/htmlacademy_ru" class="contacts__link contacts__link--twitter">Twitter</a>
         </li>
-        <li><a href="https://www.instagram.com/htmlacademy/"
-            class="contacts__link  contacts__link--instagram">Instagtam</a></li>
-        <li><a href="https://www.facebook.com/htmlacademy" class="contacts__link  contacts__link--facebook">Facebook</a>
+        <li>
+          <a href="https://www.instagram.com/htmlacademy/"
+            class="contacts__link contacts__link--instagram">Instagtam</a>
         </li>
-        <li><a href="https://vk.com/htmlacademy" class="contacts__link  contacts__link--vk">VK</a></li>
+        <li>
+          <a href="https://www.facebook.com/htmlacademy" class="contacts__link contacts__link--facebook">Facebook</a>
+        </li>
+        <li>
+          <a href="https://vk.com/htmlacademy" class="contacts__link contacts__link--vk">VK</a>
+        </li>
       </ul>
     </div>
   </footer>
 
   <script>
-    const handle = (/** @type {Event} */ e, /** @type {Element} */ container) => {
+    const handle = (
+        /** @type {Event} */ e,
+        /** @type {Element} */ container
+    ) => {
       const targetTab = e.target;
 
       if (!targetTab) return;
       // если элемент, на котором произошел клик
       // уже активный, то делаем возврат
-      if (targetTab.classList.contains('active')) {
+      if (targetTab.classList.contains("active")) {
         return;
       }
 
@@ -151,45 +164,45 @@
       const targetTabContent = document.querySelector(targetTabContentId);
 
       // находим и получаем элемент, который был активным до клика
-      const activeTab = container.querySelector('.active');
+      const activeTab = container.querySelector(".active");
       const activeTabContentId = activeTab.dataset.bsTarget;
       const activeTabContent = document.querySelector(activeTabContentId);
 
       // добавляем класс active чтобы сделать элемент,
       // на котором произошел клик активным
-      targetTab.classList.add('active');
-      targetTabContent.classList.add('active');
+      targetTab.classList.add("active");
+      targetTabContent.classList.add("active");
       // удаляем класс с элемента который был активным до клика
-      activeTab.classList.remove('active');
-      activeTabContent.classList.remove('active');
+      activeTab.classList.remove("active");
+      activeTabContent.classList.remove("active");
     };
 
     // находим все элементы с классом .nav
-    const navs = document.querySelectorAll('.nav');
+    const navs = document.querySelectorAll(".nav");
 
     // console.log(navs);
 
     // на каждую кнопку в nav вешаем событие
     // для этого обходим все элементы и на каждый вешаем обработчик по событию click
     navs.forEach((nav) => {
-      const tabs = nav.querySelectorAll('[data-bs-toggle]');
+      const tabs = nav.querySelectorAll("[data-bs-toggle]");
       tabs.forEach((tab) => {
-        tab.addEventListener('click', (event) => handle(event, nav));
+        tab.addEventListener("click", (event) => handle(event, nav));
       });
     });
 
     // Реализация игры крестики нолики
 
-    var area = document.getElementById('area');
-    var cell = document.getElementsByClassName('cell');
-    var currentPlayer = document.getElementById('curPlyr');
+    var area = document.getElementById("area");
+    var cell = document.getElementsByClassName("cell");
+    var currentPlayer = document.getElementById("curPlyr");
 
     var player = "x";
     var stat = {
-      'x': 0,
-      'o': 0,
-      'd': 0
-    }
+      x: 0,
+      o: 0,
+      d: 0,
+    };
     var winIndex = [
       [1, 2, 3],
       [4, 5, 6],
@@ -198,7 +211,7 @@
       [2, 5, 8],
       [3, 6, 9],
       [1, 5, 9],
-      [3, 5, 7]
+      [3, 5, 7],
     ];
 
     for (var i = 1; i <= 9; i++) {
@@ -206,11 +219,10 @@
     }
 
     for (var i = 0; i < cell.length; i++) {
-      cell[i].addEventListener('click', cellClick, false);
+      cell[i].addEventListener("click", cellClick, false);
     }
 
     function cellClick() {
-
       var data = [];
 
       if (!this.innerHTML) {
@@ -222,7 +234,7 @@
 
       for (var i in cell) {
         if (cell[i].innerHTML == player) {
-          data.push(parseInt(cell[i].getAttribute('pos')));
+          data.push(parseInt(cell[i].getAttribute("pos")));
         }
       }
 
@@ -232,7 +244,7 @@
       } else {
         var draw = true;
         for (var i in cell) {
-          if (cell[i].innerHTML == '') draw = false;
+          if (cell[i].innerHTML == "") draw = false;
         }
         if (draw) {
           stat.d += 1;
@@ -252,7 +264,7 @@
           var ind = data.indexOf(id);
 
           if (ind == -1) {
-            win = false
+            win = false;
           }
         }
 
@@ -262,18 +274,17 @@
     }
 
     function restart(text) {
-
       alert(text);
       for (var i = 0; i < cell.length; i++) {
-        cell[i].innerHTML = '';
+        cell[i].innerHTML = "";
       }
       updateStat();
     }
 
     function updateStat() {
-      document.getElementById('sX').innerHTML = stat.x;
-      document.getElementById('sO').innerHTML = stat.o;
-      document.getElementById('sD').innerHTML = stat.d;
+      document.getElementById("sX").innerHTML = stat.x;
+      document.getElementById("sO").innerHTML = stat.o;
+      document.getElementById("sD").innerHTML = stat.d;
     }
   </script>
 </body>
