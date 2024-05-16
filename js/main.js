@@ -1,20 +1,12 @@
 import { renderPhotos } from "./userPicture.js";
 import { generateMockPhotos } from "./mocks.js";
-// import { encrypteText } from "./helpers.js";
-// import { sumNumbersFromRange, reverseString } from "./functions.js";
-// import { request } from "./fetch.js";
-// import { showError } from "./alerts.js";
-// import { DESCRIPTION } from './mocks.js';
-// import { moveToURL } from "./hexlet-Bom.js";
 import { shuffleArray } from "./utils.js";
 import './editor.js';
 import './effects.js';
 import './validation.js';
 import './fetch.js';
 import './alerts.js';
-
-// console.log(shuffleArray(Colors.FIREBALL));
-// console.log(encrypteText('antonmyname'));
+import './load-image.js';
 
 const DEFAULT_PREVIEW_LOAD = 25;
 const RANDOM_PREVIEW_LOAD = 10;
@@ -57,7 +49,7 @@ const filters = {
 };
 
 const onFilterClick = (evt) => {
-  console.log(evt.target.id);
+  // console.log(evt.target.id);
   if (evt.target.classList.contains('img-filters__button')) {
     removeActiveClass();
     removePhotos();
