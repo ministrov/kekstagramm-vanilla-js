@@ -139,6 +139,7 @@ main {
   -webkit-box-pack: justify;
      -ms-flex-pack: justify;
    justify-content: space-between;
+  padding-bottom: 20px;
 }
 
 
@@ -1131,25 +1132,27 @@ main {
 
 
 /*
- * Копирайт Академии
+ * Логотип разработчика
 */
 
-.copyright {
-  font-size: 12px;
+.logo {
+  padding: 5px 15px;
+  text-decoration: none;
+  border: 2px solid #ffffff;
+  border-radius: 6px;
 }
 
-.copyright__link--image:hover,
-.copyright__link--image:focus {
-  opacity: 0.6;
+.logo__developer {
+  margin: 0;
+  font-family: "Open Sans", "Arial", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  text-transform: uppercase;
 }
 
-.copyright__link--text {
-  color: #ffffff;
-}
-
-.copyright__link--text:hover,
-.copyright__link--text:focus {
-  opacity: 0.6;
+.logo__link {
+  text-decoration: none;
+  color: #cccccc;
 }
 
 .page-footer__contacts {
