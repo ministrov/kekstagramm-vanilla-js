@@ -85,3 +85,10 @@ filter.addEventListener('click', onFilterClick);
 // console.log(tabsContent);
 // console.log(html);
 
+// Adding user photo to an array of photos
+document.addEventListener('submit', (evt) => {
+  evt.preventDefault();
+
+  console.log('submitted');
+});
+
