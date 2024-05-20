@@ -49,7 +49,6 @@ const filters = {
 };
 
 const onFilterClick = (evt) => {
-  // console.log(evt.target.id);
   if (evt.target.classList.contains('img-filters__button')) {
     removeActiveClass();
     removePhotos();
