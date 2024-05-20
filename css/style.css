@@ -273,6 +273,27 @@ main {
   display: flex;
 }
 
+.picture__close {
+  position: absolute;
+  display: none;
+  top: 20px;
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
+
+.picture:hover .picture__close,
+.picture:focus .picture__close {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.picture__ex {
+  color: #ffffff;
+}
+
 .picture__comments,
 .picture__likes {
   padding-left: 30px;
