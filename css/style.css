@@ -276,11 +276,12 @@ main {
 .picture__close {
   position: absolute;
   display: none;
-  top: 20px;
-  right: 20px;
+  top: 15px;
+  right: 25px;
+  width: 30px;
+  height: 30px;
   background-color: rgba(0, 0, 0, 0.5);
-  border: 2px solid rgba(0, 0, 0, 0.5);
-  border-radius: 5px;
+  border-radius: 8px;
 }
 
 .picture:hover .picture__close,
@@ -291,6 +292,8 @@ main {
 }
 
 .picture__ex {
+  display: block;
+  margin: auto;
   color: #ffffff;
 }
 

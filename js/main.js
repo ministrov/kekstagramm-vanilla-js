@@ -13,6 +13,7 @@ const DEFAULT_PREVIEW_LOAD = 25;
 const RANDOM_PREVIEW_LOAD = 10;
 
 const filter = document.querySelector('.img-filters');
+// const close = document.querySelector('.picture__close');
 filter.classList.remove('img-filters--inactive');
 
 let photos = [];
