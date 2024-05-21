@@ -1,6 +1,7 @@
 import { renderPhotos } from "./userPicture.js";
 import { generateMockPhotos } from "./mocks.js";
 import { shuffleArray } from "./utils.js";
+import { lastComments } from "./hexlet-Bom.js";
 import './editor.js';
 import './effects.js';
 import './validation.js';
@@ -12,6 +13,7 @@ const DEFAULT_PREVIEW_LOAD = 25;
 const RANDOM_PREVIEW_LOAD = 10;
 
 const filter = document.querySelector('.img-filters');
+// const close = document.querySelector('.picture__close');
 filter.classList.remove('img-filters--inactive');
 
 let photos = [];
@@ -83,6 +85,7 @@ filter.addEventListener('click', onFilterClick);
 // });
 // console.log(tabsContent);
 // console.log(html);
+console.log(lastComments);
 
 // Adding user photo to an array of photos
 document.addEventListener('submit', (evt) => {

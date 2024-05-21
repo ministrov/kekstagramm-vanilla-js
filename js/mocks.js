@@ -70,7 +70,6 @@ const addComments = () => {
 */
 
 const generateMockPhotos = (photos) => {
-  console.log(photos);
   for (let i = 0; i < PHOTO_COUNT; i++) {
     photos.push({
       id: i,
