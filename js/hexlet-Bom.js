@@ -1,4 +1,4 @@
-  import { htmlEscape } from 'escape-goat';
+  // import { htmlEscape } from 'escape-goat';
 
 /**
  * При вызове она должна делать переход на страницу и возвращать начальную часть строки с именем совместимого браузера (User agent) * и текущей открытой страницей.
@@ -30,7 +30,7 @@ const findAllParagraphs = (root) => {
 /**
  * This function find all divs and check it whether their have a text content or don't have
  * @param {Object} document
- */
+*/
 
 const prettify = (document) => {
   const divs = [...document.getElementsByTagName('div')];
@@ -49,7 +49,7 @@ const prettify = (document) => {
 /**
  *  This function normalize all cebab-case classes to camel-case style
  * @param {Object} document
- */
+*/
 
 const normalizeClasses = (document) => {
   const allNodes = [...document.getElementsByTagName('*')];
@@ -144,11 +144,51 @@ export default (selector) => {
 // const autocomplete1 = addAutocomplete('.input1');
 // const autocomplete2 = addAutocomplete('.input2');
 
+// Нормализация данных— JS: Архитектура фронтенда
+
+const posts = [
+  {
+    question: 'Как писать код?',
+    likesCount: 2,
+    comments: [
+      {
+        answer: 'Открой редактор!',
+        likesCount: 1,
+        createdAt: '11-12-2022',
+      },
+      {
+        answer: 'Сидя!',
+        likesCount: 3,
+        createdAt: '11-12-2022',
+      },
+    ]
+  },
+  {
+    question: 'Что лучше: vim или emacs?',
+    likesCount: 2,
+    comments: [
+      {
+        answer: 'FAR зе бест!',
+        likesCount: 100,
+        createdAt: '11-12-2022',
+      },
+    ]
+  }
+];
+
+// Однако, если данные связаны, то иерархическая структура превращается в проблему.Представьте себе, что надо выводить 10 последних комментариев.Как это сделать ? Придется ходить по всем топикам, брать все комментарии, объединять и искать самые свежие.Устрашающий пример:
+
+const comments = posts.flatMap((p) => p.comments);
+const sortedComments = comments.sort((c1, c2) => new Date(c2.createdAt) - new Date(c1.createdAt));
+const lastComments = sortedComments.slice(0, 10);
+
+
 export {
   moveToURL,
   findAllParagraphs,
   prettify,
   normalizeClasses,
   renderAlertIntoDiv,
-  getFormDataValueAndRender
+  getFormDataValueAndRender,
+  lastComments
 }
