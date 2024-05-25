@@ -8,12 +8,12 @@ import './validation.js';
 import './fetch.js';
 import './alerts.js';
 import './load-image.js';
+import getSameParity from "./hexlet-array.js";
 
 const DEFAULT_PREVIEW_LOAD = 25;
 const RANDOM_PREVIEW_LOAD = 10;
 
 const filter = document.querySelector('.img-filters');
-// const close = document.querySelector('.picture__close');
 filter.classList.remove('img-filters--inactive');
 
 let photos = [];
@@ -85,7 +85,7 @@ filter.addEventListener('click', onFilterClick);
 // });
 // console.log(tabsContent);
 // console.log(html);
-console.log(lastComments);
+console.log(getSameParity([2, 5, 6, 8]));
 
 // Adding user photo to an array of photos
 document.addEventListener('submit', (evt) => {
