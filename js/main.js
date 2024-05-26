@@ -1,14 +1,15 @@
 import { renderPhotos } from "./userPicture.js";
 import { generateMockPhotos } from "./mocks.js";
 import { shuffleArray } from "./utils.js";
-import { lastComments } from "./hexlet-Bom.js";
+// import { lastComments } from "./hexlet-Bom.js";
+import { getTotalAmount } from "./hexlet-array.js";
 import './editor.js';
 import './effects.js';
 import './validation.js';
 import './fetch.js';
 import './alerts.js';
 import './load-image.js';
-import getSameParity from "./hexlet-array.js";
+
 
 const DEFAULT_PREVIEW_LOAD = 25;
 const RANDOM_PREVIEW_LOAD = 10;
@@ -85,7 +86,9 @@ filter.addEventListener('click', onFilterClick);
 // });
 // console.log(tabsContent);
 // console.log(html);
-console.log(getSameParity([2, 5, 6, 8]));
+// console.log(getSameParity([2, 5, 6, 8]));
+// console.log(getSameParity([1, 3, 4, 6, 7, 9]));
+console.log(getTotalAmount(['eur 10', 'usd 1', 'usd 10', 'rub 50', 'usd 5'], 'usd'));
 
 // Adding user photo to an array of photos
 document.addEventListener('submit', (evt) => {
