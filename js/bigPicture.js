@@ -55,13 +55,10 @@ const renderComments = (comments) => {
   commentsCount = (comments.length < COMMENTS_LOAD_STEP) ? comments.length : commentsCount;
   commentsLoaded = comments.slice(0, commentsCount);
 
-  // console.log(commentsCount);
-
   commentsList.innerHTML = '';
 
   commentCount.textContent = `${commentsLoaded.length} из ${comments.length} комментариев`;
 
-  // console.log(commentsLoaded);
   let commentsListFragment = document.createDocumentFragment();
 
   commentsLoaded.forEach((comment) => {

@@ -1,16 +1,33 @@
 const getSameParity = (/** @type {string | any[]} */ array) => {
   let result = [];
+  const remainder = Math.abs(array[0] % 2);
+
   if (array.length === 0) {
     return [];
   }
 
-  for (let i = 0; i < array.length; i++) {
-    if (array[0] % array[i] === 0) {
-      result.push(array[i]);
+  for (let item of array) {
+    if (Math.abs(item % 2) === remainder) {
+      result.push(item);
     }
   }
 
   return result;
 }
 
-export default getSameParity;
+const getTotalAmount = (currencies, currency) => {
+  // let total = 0;
+
+  // for (const item of currencies) {
+  //   if (item.slice(0, currencies.length) === currency) {
+  //     total += Number(currency);
+  //   }
+  // }
+
+  // return total;
+};
+
+export {
+  getSameParity,
+  getTotalAmount
+}
