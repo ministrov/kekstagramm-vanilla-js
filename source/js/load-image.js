@@ -23,6 +23,8 @@ uploadFile.addEventListener('change', () => {
   if (matches) {
     const reader = new FileReader();
 
+    console.log(reader);
+
     reader.addEventListener('load', () => {
       uploadPreview.src = reader.result;
       uploadPreview.width = Picture.WIDTH;

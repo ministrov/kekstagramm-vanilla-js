@@ -1,6 +1,6 @@
 import { isEscKey } from "./utils.js";
 import { showError, showSuccess } from "./alerts.js";
-import { effectLevel, lastClass } from "./effects.js";
+import { setDefaultLevel } from "./effects.js";
 
 const Scale = {
   MAX: 100,
@@ -23,8 +23,12 @@ uploadInput.addEventListener('change', () => {
 // Closing uploadModal
 const closeModal = () => {
   uploadModal.classList.add('hidden');
-  body.classList.remove('.modal-open');
+  body.classList.remove('modal-open');
+  inputHashtag.style.border = 'none';
   uploadInput.value = '';
+  uploadForm.reset();
+  setDefaultLevel();
+  document.removeEventListener('keydown', onEditorFormEscapeKeydown);
 }
 
 uploadModalClose.addEventListener('click', () => {
@@ -44,14 +48,8 @@ const scaleValue = uploadModal.querySelector('.scale__control--value');
 const imagePreview = uploadModal.querySelector('.img-upload__preview > img');
 
 const resetSettings = () => {
-  imagePreview.style = 'transform: scale(1.00)';
-  imagePreview.style.filter = '';
-  if (lastClass) {
-    imagePreview.classList.remove(lastClass);
-  }
-
+  imagePreview.style = 'transform: scale(1.00)'
   scaleValue.value = '100%';
-  effectLevel.classList.add('visually-hidden');
 }
 
 const getScaleValue = (scale) => {
@@ -120,3 +118,5 @@ uploadForm.addEventListener('submit', (evt) => {
 
   // request(onSuccess, onError, 'POST', new FormData(evt.target));
 });
+
+export { closeModal }
