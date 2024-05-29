@@ -10,6 +10,8 @@ const uploadPreviewContainer = document.querySelector('.img-upload__preview');
 const uploadPreview = uploadPreviewContainer.querySelector('img');
 const previews = document.querySelectorAll('.effects__preview');
 
+// console.log(uploadFile.files);
+
 uploadFile.addEventListener('change', () => {
   const file = uploadFile.files[0];
   const fileName = file.name.toLowerCase();

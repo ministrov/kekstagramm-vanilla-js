@@ -15,7 +15,7 @@ const countChar = (text, char) => {
   return count;
 }
 
-// Second way of resolvin it
+// Second way of resolving it
 const countChars2 = (str, char) => {
   let i = 0;
   let count = 0;

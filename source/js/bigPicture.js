@@ -55,13 +55,10 @@ const renderComments = (comments) => {
   commentsCount = (comments.length < COMMENTS_LOAD_STEP) ? comments.length : commentsCount;
   commentsLoaded = comments.slice(0, commentsCount);
 
-  console.log(commentsCount);
-
   commentsList.innerHTML = '';
 
   commentCount.textContent = `${commentsLoaded.length} из ${comments.length} комментариев`;
 
-  console.log(commentsLoaded);
   let commentsListFragment = document.createDocumentFragment();
 
   commentsLoaded.forEach((comment) => {
@@ -86,7 +83,6 @@ const showBigPicture = (picture) => {
   body.classList.add('modal-open');
   bigPicture.querySelector('.big-picture__img > img').src = picture.url;
   bigPicture.querySelector('.likes-count').textContent = picture.likes;
-  // commentCount.querySelector('.comments-count').textContent = picture.comments.length;
   bigPicture.querySelector('.social__caption').textContent = picture.description;
 
   bigPictureClose.addEventListener('click', onBigPictureCloseClick);

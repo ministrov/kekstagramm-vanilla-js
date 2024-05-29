@@ -94,6 +94,18 @@ const onError = () => {
 uploadForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
 
+  const formData = new FormData(uploadForm);
+  const formDataAsObject = Object.fromEntries(formData);
+
+  for (const data of formData) {
+    console.log(data);
+  }
+
+  console.log(formData);
+  console.log(typeof formData);
+  console.log(formData.get('name'));
+  console.log(formDataAsObject);
+
   // Реализовать возможность добавления фотки в массив
 
   try {
