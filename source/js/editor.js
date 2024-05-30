@@ -87,12 +87,18 @@ const onSuccess = () => {
   uploadForm.reset();
 }
 
-const onError = () => {
-  showError('OOps, there was going wrong!!!');
-}
+// const onError = () => {
+//   showError('OOps, there was going wrong!!!');
+// }
 
 uploadForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
+
+  // const target = evt.target;
+
+  // if (target) {
+  //   console.log(target);
+  // }
 
   const formData = new FormData(uploadForm);
   const formDataAsObject = Object.fromEntries(formData);
@@ -112,9 +118,8 @@ uploadForm.addEventListener('submit', (evt) => {
     onSuccess();
   } catch (e) {
     console.log(e);
-    onError();
+    // onError();
   }
-  // console.log('Form has been submitted');
 
   // request(onSuccess, onError, 'POST', new FormData(evt.target));
 });
