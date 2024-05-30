@@ -1,8 +1,6 @@
 import { renderPhotos } from "./userPicture.js";
 import { generateMockPhotos } from "./mocks.js";
 import { shuffleArray } from "./utils.js";
-// import { lastComments } from "./hexlet-Bom.js";
-import { getTotalAmount } from "./hexlet-array.js";
 import './editor.js';
 import './effects.js';
 import './validation.js';
@@ -61,39 +59,3 @@ const onFilterClick = (evt) => {
 };
 
 filter.addEventListener('click', onFilterClick);
-
-// getData((wizards) => {
-//   renderSimilarList(wizards);
-//   setEyesClick(() => renderSimilarList(wizards));
-//   setCoatClick(() => renderSimilarList(wizards));
-// });
-
-// setUserFormSubmit(closeUserModal);
-
-// console.log(moveToURL('https://google.com'));
-
-// Пытаюсь вместо страницы фоток , по нажатию на ссылку табов, показать страницу табов
-
-// const html = document.querySelector('html');
-// const tabsContent = document.querySelector('#tabs').content;
-// const tabLink = document.querySelector('[data-tabs="data-tabs"]');
-
-// document.addEventListener('click', (evt) => {
-//   if (evt.target === tabLink) {
-//     html.innerHTML = '';
-//     html.innerHTML = tabsContent.innerHTML;
-//   }
-// });
-// console.log(tabsContent);
-// console.log(html);
-// console.log(getSameParity([2, 5, 6, 8]));
-// console.log(getSameParity([1, 3, 4, 6, 7, 9]));
-console.log(getTotalAmount(['eur 10', 'usd 1', 'usd 10', 'rub 50', 'usd 5'], 'usd'));
-
-// Adding user photo to an array of photos
-document.addEventListener('submit', (evt) => {
-  evt.preventDefault();
-
-  console.log('submitted');
-});
-

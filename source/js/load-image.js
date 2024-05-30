@@ -10,8 +10,6 @@ const uploadPreviewContainer = document.querySelector('.img-upload__preview');
 const uploadPreview = uploadPreviewContainer.querySelector('img');
 const previews = document.querySelectorAll('.effects__preview');
 
-// console.log(uploadFile.files);
-
 uploadFile.addEventListener('change', () => {
   const file = uploadFile.files[0];
   const fileName = file.name.toLowerCase();
@@ -22,8 +20,6 @@ uploadFile.addEventListener('change', () => {
 
   if (matches) {
     const reader = new FileReader();
-
-    console.log(reader);
 
     reader.addEventListener('load', () => {
       uploadPreview.src = reader.result;

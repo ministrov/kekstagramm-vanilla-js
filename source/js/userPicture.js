@@ -19,7 +19,6 @@ const renderPhoto = (picture) => {
 
 const renderPhotos = (photos) => {
   let userPhotosListFragment = document.createDocumentFragment();
-  // console.log(userPhotosListFragment);
 
   photos.forEach((photo) =>{
     userPhotosListFragment.appendChild(renderPhoto(photo));
